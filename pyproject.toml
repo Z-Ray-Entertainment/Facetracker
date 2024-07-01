@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openseeface_facetracking_wrapper"
+dynamic = ["version", "readme"]
+description = "OpenSeeFace Facetracking Wrapper"
+license = { text = "MIT License"}
+dependencies = [
+    "xdg>=6.0.0",
+    "PyGObject>=3.42.2",
+    "onnxruntime",
+    "opencv-python",
+    "pillow",
+    "numpy==1.26.1"
+]
+
+[project.scripts]
+osf-facetracking-wrapper = "openseeface_facetracking_wrapper:run"
+
+[tool.setuptools.dynamic]
+version = {attr = "openseeface_facetracking_wrapper.VERSION"}
+readme = {file = ["README.md"]}
+
+[tool.setuptools]
+py-modules = []
+include-package-data = true
+platforms = ["Linux"]
