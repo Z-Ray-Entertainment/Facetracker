@@ -1,17 +1,24 @@
+import os
+import signal
+import subprocess
+
 import gi
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 from gi.repository import Gtk, Adw
 
+VERSION = "24.7.1"
+
 
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.facetracking = False
+        self.face_process = None
 
         self.set_default_size(600, 300)
-        self.set_title("OpenSeeFace Wrapper")
+        self.set_title("OpenSeeFace Wrapper (" + VERSION + ")")
         self.header = Gtk.HeaderBar()
         self.set_titlebar(self.header)
 
@@ -24,9 +31,17 @@ class MainWindow(Gtk.ApplicationWindow):
         if not self.facetracking:
             self.facetracking = True
             self.bt_launch.set_label("Stop Tracking")
+            camera_index = 2
+            video_width = 1280
+            video_height = 720
+            script_to_run = "OpenSeeFace/facetracker.py"
+            self.face_process = subprocess.Popen(
+                ["python3", script_to_run, "-W", str(video_width), "-H", str(video_height), "-c", str(camera_index),
+                 "--discard-after", "0", "--scan-every", "0", "--no-3d-adapt", "1", "--max-feature-updates", "900"])
         else:
             self.facetracking = False
             self.bt_launch.set_label("Start Tracking")
+            os.kill(self.face_process.pid, signal.SIGKILL)
 
 
 class OpenSeeFaceFacetrackingWrapper(Adw.Application):
