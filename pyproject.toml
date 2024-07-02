@@ -5,8 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "Facetracker"
 description = "A wrapper UI for OpenSeeFace's Facetracker"
-dynamic = ["version"]
+version = "24.7"
 readme = "README.md"
+license = { file = "LICENSE" }
 dependencies = [
     "onnxruntime",
     "opencv-python",
