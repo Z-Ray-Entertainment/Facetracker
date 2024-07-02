@@ -1,0 +1,3 @@
+[submodule "facetracker/OpenSeeFace"]
+	path = facetracker/OpenSeeFace
+	url = https://github.com/emilianavt/OpenSeeFace.git
