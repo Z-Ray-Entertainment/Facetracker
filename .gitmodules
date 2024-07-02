@@ -1,3 +1,0 @@
-[submodule "openseeface_facetracking_wrapper/OpenSeeFace"]
-	path = openseeface_facetracking_wrapper/OpenSeeFace
-	url = https://github.com/emilianavt/OpenSeeFace.git
