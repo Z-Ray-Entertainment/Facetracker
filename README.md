@@ -5,3 +5,5 @@ This is just a little utility to provide a graphical interface for OpenSeeFace F
 - Specify a port for teh facetracker to listen
 - video width and height
 - choose supported frames per second of a selected device
+
+![screenshot]("./data/facetracker.png")
