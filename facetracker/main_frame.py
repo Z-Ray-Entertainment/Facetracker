@@ -4,6 +4,7 @@ import subprocess
 
 import gi
 
+from facetracker import webcam_info
 from facetracker.const import VERSION, APP_NAME
 
 gi.require_version('Gtk', '4.0')
@@ -26,6 +27,18 @@ class MainWindow(Gtk.ApplicationWindow):
         self.bt_launch.set_tooltip_text("Start/Stop OpenSeeFace Facetracker")
         self.bt_launch.connect("clicked", self.start_stop_facetracker)
         self.header.pack_end(self.bt_launch)
+
+        self.cb_cams = Gtk.ComboBoxText()
+        self.header.pack_start(self.cb_cams)
+
+        self._build_webcam_cb(webcam_info.get_webcams())
+
+    def _build_webcam_cb(self, webcams):
+        for webcam in webcams:
+            index = str(webcam.device_index)
+            name = "[" + index + "] " + webcam.device_name
+            self.cb_cams.append(index, name)
+        self.cb_cams.set_active(0)
 
     def start_stop_facetracker(self, button):
         if not self.facetracking:
@@ -57,4 +70,3 @@ class OpenSeeFaceFacetrackingWrapper(Adw.Application):
 
     def on_close(self):
         self.win.stop_core()
-
