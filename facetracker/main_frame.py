@@ -20,6 +20,8 @@ class MainWindow(Gtk.ApplicationWindow):
         self.about_ui: Adw.AboutWindow
         self.bt_launch: Gtk.ToggleButton
         self.cam_combo_row: Adw.ComboRow
+        self.ip_text: Adw.EntryRow
+        self.port_text: Adw.EntryRow
 
         self.set_title(APP_NAME + " (" + VERSION + ")")
         self.set_default_size(600, 300)
@@ -31,7 +33,7 @@ class MainWindow(Gtk.ApplicationWindow):
         header = Gtk.HeaderBar()
 
         self.bt_launch = Gtk.ToggleButton(label="Start Tracking")
-        self.bt_launch.set_tooltip_text("Start/Stop OpenSeeFace Facetracker")
+        self.bt_launch.set_tooltip_text("Start/Stop OpenSeeFace_Blub Facetracker")
         self.bt_launch.connect("clicked", self._start_stop_facetracker)
         self.bt_launch.add_css_class("suggested-action")
         header.pack_start(self.bt_launch)
@@ -47,7 +49,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.about_ui.set_version(VERSION)
         self.about_ui.set_developer_name("Imo 'Vortex Acherontic' Hester")
         self.about_ui.set_license_type(license_type=Gtk.License.MIT_X11)
-        self.about_ui.set_comments("A graphical user interface to launch OpenSeeFace's Facetracker."
+        self.about_ui.set_comments("A graphical user interface to launch OpenSeeFace_Blub's Facetracker."
                                    "\nThis application is meant to be used in conjunction with the likes of "
                                    "VTube Studio VSeeFace and the likes as these do not offer a native Linux version"
                                    "and thus facetracking using a Webcam does not work in Wine or Proton.")
@@ -75,12 +77,14 @@ class MainWindow(Gtk.ApplicationWindow):
     def _build_server_settings(self, boxed_list: Gtk.ListBox):
         ip_and_port_row = Adw.ActionRow()
 
-        ip_text = Adw.EntryRow()
-        ip_text.set_title("IP Address:")
-        port_text = Adw.EntryRow()
-        port_text.set_title("Port:")
-        ip_and_port_row.add_prefix(ip_text)
-        ip_and_port_row.add_suffix(port_text)
+        self.ip_text = Adw.EntryRow()
+        self.ip_text.set_title("IP Address:")
+        self.ip_text.set_text("0.0.0.0")
+        self.port_text = Adw.EntryRow()
+        self.port_text.set_title("Port:")
+        self.port_text.set_text("11573")
+        ip_and_port_row.add_prefix(self.ip_text)
+        ip_and_port_row.add_suffix(self.port_text)
         boxed_list.append(ip_and_port_row)
 
     def _build_webcam_cb(self, webcams):
@@ -99,18 +103,20 @@ class MainWindow(Gtk.ApplicationWindow):
 
     def _start_stop_facetracker(self, button):
         if not self.facetracking:
+
             self.facetracking = True
             self.bt_launch.set_label("Stop Tracking")
             self.bt_launch.remove_css_class("suggested-action")
             self.bt_launch.add_css_class("destructive-action")
             selected_item = self.cam_combo_row.get_selected_item()
             camera_index = selected_item.get_string().split(":")[0]
-            video_width = 1280
-            video_height = 720
-            script_to_run = "facetracker/OpenSeeFace/facetracker.py"
+            video_width = 640
+            video_height = 360
+            script_to_run = "facetracker/OpenSeeFace_Blub/facetracker"
             self.face_process = subprocess.Popen(
-                ["python3", script_to_run, "-W", str(video_width), "-H", str(video_height), "-c", str(camera_index),
-                 "--discard-after", "0", "--scan-every", "0", "--no-3d-adapt", "1", "--max-feature-updates", "900"])
+                [script_to_run, "-W", str(video_width), "-H", str(video_height), "-c", str(camera_index),
+                 "--discard-after", "0", "--scan-every", "0", "--no-3d-adapt", "1", "--max-feature-updates", "900",
+                 "-s", "1", "-p", self.port_text.get_text(), "-i", self.ip_text.get_text()])
         else:
             self.facetracking = False
             self.bt_launch.add_css_class("suggested-action")

@@ -69,7 +69,6 @@ def get_webcams() -> [WebcamInfo]:
             """
             device_path_result = subprocess.run(["realpath", video_devices_path + video_dir], stdout=subprocess.PIPE)
             device_path = device_path_result.stdout.decode("utf-8").rstrip().split("video4linux")[0]
-            print(device_path_result.stdout.decode("utf-8").rstrip())
 
             webcaminfo = WebcamInfo(device_index, device_name, device_path)
 

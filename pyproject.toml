@@ -9,10 +9,6 @@ version = "24.7"
 readme = "README.md"
 license = { file = "LICENSE" }
 dependencies = [
-    "onnxruntime",
-    "opencv-python",
-    "pillow",
-    "numpy==1.26.1",
     "xdg",
     "PyGObject>=3.42.2",
     "ioctl"
