@@ -6,4 +6,4 @@ This is just a little utility to provide a graphical interface for OpenSeeFace F
 - video width and height
 - choose supported frames per second of a selected device
 
-![screenshot]("./data/facetracker.png")
+![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/facetracker.png)
