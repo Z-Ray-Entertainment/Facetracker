@@ -17,9 +17,9 @@ class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.facetracking = False
-        self.face_process = None
-        self.about_ui = None
-        self.bt_launch = None
+        self.face_process: int
+        self.about_ui: Adw.AboutWindow
+        self.bt_launch: Gtk.ToggleButton
         self.cam_combo_row: Adw.ComboRow
 
         self.set_title(APP_NAME + " (" + VERSION + ")")
