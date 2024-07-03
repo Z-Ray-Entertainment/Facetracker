@@ -87,5 +87,7 @@ def get_webcams() -> [WebcamInfo]:
 
         webcams = []
         for webcam_info in found_devices:
-            webcams.append(found_devices[webcam_info])
+            webcam = found_devices[webcam_info]
+            # TODO: Get video modes
+            webcams.append(webcam)
     return webcams
