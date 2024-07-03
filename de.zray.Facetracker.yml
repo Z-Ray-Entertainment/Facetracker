@@ -1,0 +1,15 @@
+id: de.zray.Facetracker
+name: Facetracker
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+command: facetracker-gui
+buildsystem: simple
+build-commands:
+  - pip3 install --prefix=/app --no-deps .
+sources:
+  - type: archive
+    url: https://bla.de/
+    sha256: 1234
+modules:
+  - python3-requirements.json
