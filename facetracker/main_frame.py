@@ -33,7 +33,7 @@ class MainWindow(Gtk.ApplicationWindow):
         header = Gtk.HeaderBar()
 
         self.bt_launch = Gtk.ToggleButton(label="Start Tracking")
-        self.bt_launch.set_tooltip_text("Start/Stop OpenSeeFace_Blub Facetracker")
+        self.bt_launch.set_tooltip_text("Start/Stop OpenSeeFace Facetracker")
         self.bt_launch.connect("clicked", self._start_stop_facetracker)
         self.bt_launch.add_css_class("suggested-action")
         header.pack_start(self.bt_launch)
@@ -49,7 +49,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.about_ui.set_version(VERSION)
         self.about_ui.set_developer_name("Imo 'Vortex Acherontic' Hester")
         self.about_ui.set_license_type(license_type=Gtk.License.MIT_X11)
-        self.about_ui.set_comments("A graphical user interface to launch OpenSeeFace_Blub's Facetracker."
+        self.about_ui.set_comments("A graphical user interface to launch OpenSeeFace's Facetracker."
                                    "\nThis application is meant to be used in conjunction with the likes of "
                                    "VTube Studio VSeeFace and the likes as these do not offer a native Linux version"
                                    "and thus facetracking using a Webcam does not work in Wine or Proton.")
@@ -112,7 +112,7 @@ class MainWindow(Gtk.ApplicationWindow):
             camera_index = selected_item.get_string().split(":")[0]
             video_width = 640
             video_height = 360
-            script_to_run = "facetracker/OpenSeeFace_Blub/facetracker"
+            script_to_run = "facetracker/OpenSeeFace/facetracker"
             self.face_process = subprocess.Popen(
                 [script_to_run, "-W", str(video_width), "-H", str(video_height), "-c", str(camera_index),
                  "--discard-after", "0", "--scan-every", "0", "--no-3d-adapt", "1", "--max-feature-updates", "900",
