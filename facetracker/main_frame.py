@@ -3,7 +3,6 @@ import signal
 import subprocess
 
 import gi
-from gi.repository import Gio
 
 from facetracker import webcam_info
 from facetracker.const import VERSION, APP_NAME
@@ -69,8 +68,20 @@ class MainWindow(Gtk.ApplicationWindow):
         self._build_webcam_cb(webcam_info.get_webcams())
         # cam_combo_row.add_suffix(self.cam_string_list)
         boxed_list.append(self.cam_combo_row)
+        self._build_server_settings(boxed_list)
 
         self.set_child(main_box)
+
+    def _build_server_settings(self, boxed_list: Gtk.ListBox):
+        ip_and_port_row = Adw.ActionRow()
+
+        ip_text = Adw.EntryRow()
+        ip_text.set_title("IP Address:")
+        port_text = Adw.EntryRow()
+        port_text.set_title("Port:")
+        ip_and_port_row.add_prefix(ip_text)
+        ip_and_port_row.add_suffix(port_text)
+        boxed_list.append(ip_and_port_row)
 
     def _build_webcam_cb(self, webcams):
         self.cam_combo_row = Adw.ComboRow()
