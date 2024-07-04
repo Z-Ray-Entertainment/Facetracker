@@ -90,7 +90,13 @@ def get_webcams() -> [WebcamInfo]:
         webcams = []
         for webcam_info in found_devices:
             webcam = found_devices[webcam_info]
-            videomode = VideoMode(width=640, height=360, fps=24)  # OSF default
-            webcam.add_video_mode(videomode)
+            videomode_default = VideoMode(width=640, height=360, fps=24)  # OSF default
+            videomode_hd = VideoMode(width=1280, height=720, fps=25)  # Probably works with most cams
+            videomode_hd_60 = VideoMode(width=1280, height=720, fps=60)  # Probably works with most cams
+            videomode_fullhd = VideoMode(width=1920, height=1080, fps=30)  # Probably works with most cams
+            webcam.add_video_mode(videomode_default)
+            webcam.add_video_mode(videomode_hd)
+            webcam.add_video_mode(videomode_hd_60)
+            webcam.add_video_mode(videomode_fullhd)
             webcams.append(webcam)
     return webcams
