@@ -8,6 +8,7 @@ This is just a little utility to provide a graphical interface for OpenSeeFace F
 - choose supported frames per second of a selected device
 
 ![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/facetracker.png)
+![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/facetracker_2.png)
 
 ## Development Requirements
 
