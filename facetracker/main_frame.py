@@ -22,6 +22,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.bt_launch: Gtk.ToggleButton
         self.cam_combo_row: Adw.ComboRow
         self.video_modes_row: Adw.ComboRow
+        self.tracking_mode_row: Adw.ComboRow
         self.ip_text: Adw.EntryRow
         self.port_text: Adw.EntryRow
         self.webcam_infos = webcam_info.get_webcams()
@@ -74,9 +75,34 @@ class MainWindow(Gtk.ApplicationWindow):
         boxed_list.append(self.cam_combo_row)
         self._build_video_modes()
         boxed_list.append(self.video_modes_row)
+        self._build_tracking_mode_selection()
+        boxed_list.append(self.tracking_mode_row)
         self._build_server_settings(boxed_list)
 
         self.set_child(main_box)
+
+    def _build_tracking_mode_selection(self):
+        """
+        --model {-3,-2,-1,0,1,2,3,4}
+                        This can be used to select the tracking model. Higher numbers are models with better tracking
+                        quality, but slower speed, except for
+                        model 4, which is wink optimized.
+                        Models 1 and 0 tend to be too rigid for expression and blink detection.
+                        Model -2 is roughly equivalent to model 1, but faster.
+                        Model -3 is between models 0 and -1. (default: 3)
+        """
+        self.tracking_mode_row = Adw.ComboRow()
+        self.tracking_mode_row.set_title("Model:")
+        self.tracking_mode_row.set_subtitle("Set the tracking model used by the facetracker")
+        model_string_list = Gtk.StringList()
+        model_string_list.append("-1: Superfast")
+        model_string_list.append("0: Fastest")
+        model_string_list.append("1: Faster")
+        model_string_list.append("2: Normal")
+        model_string_list.append("3: Default")
+        model_string_list.append("4: Wink optimized")
+        self.tracking_mode_row.set_model(model_string_list)
+        self.tracking_mode_row.set_selected(4)
 
     def _build_server_settings(self, boxed_list: Gtk.ListBox):
         ip_and_port_row = Adw.ActionRow()
@@ -139,11 +165,12 @@ class MainWindow(Gtk.ApplicationWindow):
             selected_video_mode = self._get_selected_video_mode()
             video_width = selected_video_mode.width
             video_height = selected_video_mode.height
+            tracking_mode = str(self.tracking_mode_row.get_selected_item().get_string().split(":")[0])
             script_to_run = "facetracker/OpenSeeFace/facetracker"
             self.face_process = subprocess.Popen(
                 [script_to_run, "-W", str(video_width), "-H", str(video_height), "-c", str(camera_index),
                  "--discard-after", "0", "--scan-every", "0", "--no-3d-adapt", "1", "--max-feature-updates", "900",
-                 "-s", "1", "-p", self.port_text.get_text(), "-i", self.ip_text.get_text()])
+                 "-s", "1", "-p", self.port_text.get_text(), "-i", self.ip_text.get_text(), "--model", tracking_mode])
         else:
             self.facetracking = False
             self.bt_launch.add_css_class("suggested-action")
