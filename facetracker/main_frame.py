@@ -67,22 +67,27 @@ class MainWindow(Gtk.ApplicationWindow):
         main_box.set_margin_top(10)
         main_box.set_margin_bottom(10)
 
-        boxed_list = Gtk.ListBox()
-        boxed_list.set_selection_mode(Gtk.SelectionMode.NONE)
-        boxed_list.add_css_class("boxed-list")
-        main_box.append(boxed_list)
+        if len(self.webcam_infos) > 0:
+            boxed_list = Gtk.ListBox()
+            boxed_list.set_selection_mode(Gtk.SelectionMode.NONE)
+            boxed_list.add_css_class("boxed-list")
+            main_box.append(boxed_list)
 
-        self._build_webcam_cb()
-        boxed_list.append(self.cam_combo_row)
+            self._build_webcam_cb()
+            boxed_list.append(self.cam_combo_row)
 
-        self.advanced_row = Adw.ExpanderRow()
-        self.advanced_row.set_title("Advanced Settings")
-        self._build_video_modes()
-        self.advanced_row.add_row(self.video_modes_row)
-        self._build_tracking_mode_selection()
-        self.advanced_row.add_row(self.tracking_mode_row)
-        self._build_server_settings(self.advanced_row)
-        boxed_list.append(self.advanced_row)
+            self.advanced_row = Adw.ExpanderRow()
+            self.advanced_row.set_title("Advanced Settings")
+            self._build_video_modes()
+            self.advanced_row.add_row(self.video_modes_row)
+            self._build_tracking_mode_selection()
+            self.advanced_row.add_row(self.tracking_mode_row)
+            self._build_server_settings(self.advanced_row)
+            boxed_list.append(self.advanced_row)
+        else:
+            no_cams_label = Gtk.Label()
+            no_cams_label.set_label("No webcams found!")
+            main_box.append(no_cams_label)
 
         self.set_child(main_box)
 
@@ -160,28 +165,28 @@ class MainWindow(Gtk.ApplicationWindow):
         return VideoMode(width, height, fps)
 
     def _start_stop_facetracker(self, button):
-        if not self.facetracking:
-
-            self.facetracking = True
-            self.bt_launch.set_label("Stop Tracking")
-            self.bt_launch.remove_css_class("suggested-action")
-            self.bt_launch.add_css_class("destructive-action")
-            camera_index = self._get_selected_camera_index()
-            selected_video_mode = self._get_selected_video_mode()
-            video_width = selected_video_mode.width
-            video_height = selected_video_mode.height
-            tracking_mode = str(self.tracking_mode_row.get_selected_item().get_string().split(":")[0])
-            script_to_run = "facetracker/OpenSeeFace/facetracker"
-            self.face_process = subprocess.Popen(
-                [script_to_run, "-W", str(video_width), "-H", str(video_height), "-c", str(camera_index),
-                 "--discard-after", "0", "--scan-every", "0", "--no-3d-adapt", "1", "--max-feature-updates", "900",
-                 "-s", "1", "-p", self.port_text.get_text(), "-i", self.ip_text.get_text(), "--model", tracking_mode])
-        else:
-            self.facetracking = False
-            self.bt_launch.add_css_class("suggested-action")
-            self.bt_launch.remove_css_class("destructive-action")
-            self.bt_launch.set_label("Start Tracking")
-            os.kill(self.face_process.pid, signal.SIGKILL)
+        if len(self.webcam_infos) > 0:
+            if not self.facetracking:
+                self.facetracking = True
+                self.bt_launch.set_label("Stop Tracking")
+                self.bt_launch.remove_css_class("suggested-action")
+                self.bt_launch.add_css_class("destructive-action")
+                camera_index = self._get_selected_camera_index()
+                selected_video_mode = self._get_selected_video_mode()
+                video_width = selected_video_mode.width
+                video_height = selected_video_mode.height
+                tracking_mode = str(self.tracking_mode_row.get_selected_item().get_string().split(":")[0])
+                script_to_run = "facetracker/OpenSeeFace/facetracker"
+                self.face_process = subprocess.Popen(
+                    [script_to_run, "-W", str(video_width), "-H", str(video_height), "-c", str(camera_index),
+                     "--discard-after", "0", "--scan-every", "0", "--no-3d-adapt", "1", "--max-feature-updates", "900",
+                     "-s", "1", "-p", self.port_text.get_text(), "-i", self.ip_text.get_text(), "--model", tracking_mode])
+            else:
+                self.facetracking = False
+                self.bt_launch.add_css_class("suggested-action")
+                self.bt_launch.remove_css_class("destructive-action")
+                self.bt_launch.set_label("Start Tracking")
+                os.kill(self.face_process.pid, signal.SIGKILL)
 
     def _get_webcam_by_index(self, index: int):
         for cam in self.webcam_infos:
