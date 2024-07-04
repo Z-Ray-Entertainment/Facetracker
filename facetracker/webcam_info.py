@@ -8,6 +8,9 @@ class VideoMode:
         self.height = height
         self.fps = fps
 
+    def to_string(self) -> str:
+        return str(self.width) + "x" + str(self.height) + "@" + str(self.fps)
+
 
 class WebcamInfo:
 
@@ -87,6 +90,7 @@ def get_webcams() -> [WebcamInfo]:
         webcams = []
         for webcam_info in found_devices:
             webcam = found_devices[webcam_info]
-            # TODO: Get video modes
+            videomode = VideoMode(width=640, height=360, fps=24)  # OSF default
+            webcam.add_video_mode(videomode)
             webcams.append(webcam)
     return webcams

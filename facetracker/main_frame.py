@@ -6,6 +6,7 @@ import gi
 
 from facetracker import webcam_info
 from facetracker.const import VERSION, APP_NAME
+from facetracker.webcam_info import VideoMode
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
@@ -20,8 +21,10 @@ class MainWindow(Gtk.ApplicationWindow):
         self.about_ui: Adw.AboutWindow
         self.bt_launch: Gtk.ToggleButton
         self.cam_combo_row: Adw.ComboRow
+        self.video_modes_row: Adw.ComboRow
         self.ip_text: Adw.EntryRow
         self.port_text: Adw.EntryRow
+        self.webcam_infos = webcam_info.get_webcams()
 
         self.set_title(APP_NAME + " (" + VERSION + ")")
         self.set_default_size(600, 300)
@@ -67,9 +70,10 @@ class MainWindow(Gtk.ApplicationWindow):
         boxed_list.add_css_class("boxed-list")
         main_box.append(boxed_list)
 
-        self._build_webcam_cb(webcam_info.get_webcams())
-        # cam_combo_row.add_suffix(self.cam_string_list)
+        self._build_webcam_cb()
         boxed_list.append(self.cam_combo_row)
+        self._build_video_modes()
+        boxed_list.append(self.video_modes_row)
         self._build_server_settings(boxed_list)
 
         self.set_child(main_box)
@@ -87,19 +91,42 @@ class MainWindow(Gtk.ApplicationWindow):
         ip_and_port_row.add_suffix(self.port_text)
         boxed_list.append(ip_and_port_row)
 
-    def _build_webcam_cb(self, webcams):
+    def _build_webcam_cb(self):
         self.cam_combo_row = Adw.ComboRow()
         self.cam_combo_row.set_title("Webcam")
         self.cam_combo_row.set_subtitle("Select which camera to use for tracking")
         self.cam_combo_row.set_activatable(True)
         cam_string_list = Gtk.StringList()
 
-        for webcam in webcams:
+        for webcam in self.webcam_infos:
             index = str(webcam.device_index)
             name = index + ": " + webcam.device_name
             cam_string_list.append(name)
         self.cam_combo_row.set_model(cam_string_list)
         self.cam_combo_row.set_enable_search(True)
+
+    def _build_video_modes(self):
+        self.video_modes_row = Adw.ComboRow()
+        self.video_modes_row.set_title("Video Mode:")
+        self.video_modes_row.set_subtitle("Select the video mode to be used for tracking")
+        mode_string_list = Gtk.StringList()
+        selected_cam = self._get_webcam_by_index(self._get_selected_camera_index())
+        for mode in selected_cam.video_modes:
+            mode_string_list.append(mode.to_string())
+        self.video_modes_row.set_model(mode_string_list)
+
+    def _get_selected_camera_index(self) -> int:
+        selected_item = self.cam_combo_row.get_selected_item()
+        return int(selected_item.get_string().split(":")[0])
+
+    def _get_selected_video_mode(self) -> VideoMode:
+        selected_video_mode = self.video_modes_row.get_selected_item()
+        fps_split = selected_video_mode.get_string().split("@")
+        fps: int = int(fps_split[1])
+        resolution = fps_split[0].split("x")
+        width: int = int(resolution[0])
+        height: int = int(resolution[1])
+        return VideoMode(width, height, fps)
 
     def _start_stop_facetracker(self, button):
         if not self.facetracking:
@@ -108,10 +135,10 @@ class MainWindow(Gtk.ApplicationWindow):
             self.bt_launch.set_label("Stop Tracking")
             self.bt_launch.remove_css_class("suggested-action")
             self.bt_launch.add_css_class("destructive-action")
-            selected_item = self.cam_combo_row.get_selected_item()
-            camera_index = selected_item.get_string().split(":")[0]
-            video_width = 640
-            video_height = 360
+            camera_index = self._get_selected_camera_index()
+            selected_video_mode = self._get_selected_video_mode()
+            video_width = selected_video_mode.width
+            video_height = selected_video_mode.height
             script_to_run = "facetracker/OpenSeeFace/facetracker"
             self.face_process = subprocess.Popen(
                 [script_to_run, "-W", str(video_width), "-H", str(video_height), "-c", str(camera_index),
@@ -123,6 +150,11 @@ class MainWindow(Gtk.ApplicationWindow):
             self.bt_launch.remove_css_class("destructive-action")
             self.bt_launch.set_label("Start Tracking")
             os.kill(self.face_process.pid, signal.SIGKILL)
+
+    def _get_webcam_by_index(self, index: int):
+        for cam in self.webcam_infos:
+            if cam.device_index == index:
+                return cam
 
 
 class OpenSeeFaceFacetrackingWrapper(Adw.Application):
