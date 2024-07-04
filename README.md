@@ -1,11 +1,12 @@
 # OpenSeeFace Facetracking Wrapper
 
-This is just a little utility to provide a graphical interface for OpenSeeFace Facetracking.
+Simple wrapper UI for OpenSeeFace's facetracker.  
 
-- It allows to select a webcam from al ist of available devices
-- Specify a port for teh facetracker to listen
-- video width and height
-- choose supported frames per second of a selected device
+- Start / Stop the tracker
+- Select Webcam
+- Select video mode (width, height, frames per second)
+- Select tracking model used by the facetracker
+- Set IP and Port for the tracker to listen
 
 ![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/facetracker.png)
 ![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/facetracker_2.png)
@@ -19,7 +20,11 @@ This is just a little utility to provide a graphical interface for OpenSeeFace F
 - python3-pip
 - gobject-introspection-devel
 
-### OpenSeeFace prebuild binary
+### Setup
+- Clone repository
+- pip install -e .
+
+#### OpenSeeFace prebuild binary
 
 To ease up flatpak distribution Facetracker uses OpenSeeFace's facetracker as a pre-build binary.  
 Get is as follows:
