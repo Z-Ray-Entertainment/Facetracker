@@ -29,13 +29,12 @@ Simple wrapper UI for OpenSeeFace's facetracker.
 To ease up flatpak distribution Facetracker uses OpenSeeFace's facetracker as a pre-build binary.  
 Get is as follows:
 
-- Clone git@github.com:emilianavt/OpenSeeFace.git
-- cd OpenSeeFace/
-- pip install onnxruntime opencv-python pillow numpy
-- pip install -U pyinstaller
-- This will build facetracker to a subdirectory called dist
-- Additionally copy the folder models from the source path to dist/facetracker/
-- Then provide a symlink to the dist directory inside Facetracker
-- Inside th Facetracker root directory
-- cd facetracker
-- ln -s ../../OpenSeeFace/dist/facetracker ./OpenSeeFace
+- `cd ../`
+- `git clone git@github.com:emilianavt/OpenSeeFace.git`
+- `cd OpenSeeFace`
+- `pip install onnxruntime opencv-python pillow numpy`
+- `pip install -U pyinstaller`
+- `pyinstaller ./facetracker.py`
+- `cp models ./dist/facetracker/`
+- `cd ../Facetracker/facetracker`
+- `ln -s ../../OpenSeeFace/dist/facetracker ./OpenSeeFace`
