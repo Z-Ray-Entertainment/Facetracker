@@ -23,12 +23,13 @@ class MainWindow(Gtk.ApplicationWindow):
         self.cam_combo_row: Adw.ComboRow
         self.video_modes_row: Adw.ComboRow
         self.tracking_mode_row: Adw.ComboRow
+        self.advanced_row: Adw.ExpanderRow
         self.ip_text: Adw.EntryRow
         self.port_text: Adw.EntryRow
         self.webcam_infos = webcam_info.get_webcams()
 
         self.set_title(APP_NAME + " (" + VERSION + ")")
-        self.set_default_size(600, 300)
+        self.set_default_size(600, 0)
         self._build_title_bar()
         self._build_main_content()
         self._build_header_menu()
@@ -73,11 +74,15 @@ class MainWindow(Gtk.ApplicationWindow):
 
         self._build_webcam_cb()
         boxed_list.append(self.cam_combo_row)
+
+        self.advanced_row = Adw.ExpanderRow()
+        self.advanced_row.set_title("Advanced Settings")
         self._build_video_modes()
-        boxed_list.append(self.video_modes_row)
+        self.advanced_row.add_row(self.video_modes_row)
         self._build_tracking_mode_selection()
-        boxed_list.append(self.tracking_mode_row)
-        self._build_server_settings(boxed_list)
+        self.advanced_row.add_row(self.tracking_mode_row)
+        self._build_server_settings(self.advanced_row)
+        boxed_list.append(self.advanced_row)
 
         self.set_child(main_box)
 
@@ -104,7 +109,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.tracking_mode_row.set_model(model_string_list)
         self.tracking_mode_row.set_selected(4)
 
-    def _build_server_settings(self, boxed_list: Gtk.ListBox):
+    def _build_server_settings(self, boxed_list: Adw.ExpanderRow):
         ip_and_port_row = Adw.ActionRow()
 
         self.ip_text = Adw.EntryRow()
@@ -115,7 +120,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.port_text.set_text("11573")
         ip_and_port_row.add_prefix(self.ip_text)
         ip_and_port_row.add_suffix(self.port_text)
-        boxed_list.append(ip_and_port_row)
+        boxed_list.add_row(ip_and_port_row)
 
     def _build_webcam_cb(self):
         self.cam_combo_row = Adw.ComboRow()
