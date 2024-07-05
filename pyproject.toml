@@ -9,9 +9,7 @@ version = "24.7a0"
 readme = "README.md"
 license = { file = "LICENSE" }
 dependencies = [
-    "xdg",
     "PyGObject>=3.42.2",
-    "ioctl"
 ]
 requires-python = ">= 3.9"
 authors = [
