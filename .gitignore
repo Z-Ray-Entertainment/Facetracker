@@ -3,5 +3,6 @@
 build/
 __pycache__
 dist/
-builddir/
-.flatpab-builder/
+flatpak_build/.flatpak-builder/
+flatpak_build/builddir/
+flatpak_build/repo/
