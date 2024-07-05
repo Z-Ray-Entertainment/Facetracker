@@ -1,10 +1,6 @@
-import os
-import signal
-import subprocess
-
 import gi
 
-from facetracker import webcam_info
+from facetracker import webcam_info, face_wrapper
 from facetracker.const import VERSION, APP_NAME
 from facetracker.webcam_info import VideoMode
 
@@ -16,8 +12,6 @@ from gi.repository import Gtk, Adw
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.facetracking = False
-        self.face_process: int
         self.about_ui: Adw.AboutWindow
         self.bt_launch: Gtk.ToggleButton
         self.cam_combo_row: Adw.ComboRow
@@ -166,27 +160,27 @@ class MainWindow(Gtk.ApplicationWindow):
 
     def _start_stop_facetracker(self, button):
         if len(self.webcam_infos) > 0:
-            if not self.facetracking:
-                self.facetracking = True
-                self.bt_launch.set_label("Stop Tracking")
-                self.bt_launch.remove_css_class("suggested-action")
-                self.bt_launch.add_css_class("destructive-action")
-                camera_index = self._get_selected_camera_index()
+            if not face_wrapper.tracking_in_progress():
                 selected_video_mode = self._get_selected_video_mode()
                 video_width = selected_video_mode.width
                 video_height = selected_video_mode.height
+                frame_rate = selected_video_mode.fps
+                camera_index = self._get_selected_camera_index()
                 tracking_mode = str(self.tracking_mode_row.get_selected_item().get_string().split(":")[0])
-                script_to_run = "facetracker/OpenSeeFace/facetracker"
-                self.face_process = subprocess.Popen(
-                    [script_to_run, "-W", str(video_width), "-H", str(video_height), "-c", str(camera_index),
-                     "--discard-after", "0", "--scan-every", "0", "--no-3d-adapt", "1", "--max-feature-updates", "900",
-                     "-s", "1", "-p", self.port_text.get_text(), "-i", self.ip_text.get_text(), "--model", tracking_mode])
+                server_ip = self.ip_text.get_text()
+                server_port = self.port_text.get_text()
+
+                if face_wrapper.run_facetracker(video_width, video_height, frame_rate, camera_index, tracking_mode,
+                                                server_ip, server_port):
+                    self.bt_launch.set_label("Stop Tracking")
+                    self.bt_launch.remove_css_class("suggested-action")
+                    self.bt_launch.add_css_class("destructive-action")
             else:
-                self.facetracking = False
-                self.bt_launch.add_css_class("suggested-action")
-                self.bt_launch.remove_css_class("destructive-action")
-                self.bt_launch.set_label("Start Tracking")
-                os.kill(self.face_process.pid, signal.SIGKILL)
+                if face_wrapper.tracking_in_progress():
+                    if face_wrapper.stop_facetracker():
+                        self.bt_launch.add_css_class("suggested-action")
+                        self.bt_launch.remove_css_class("destructive-action")
+                        self.bt_launch.set_label("Start Tracking")
 
     def _get_webcam_by_index(self, index: int):
         for cam in self.webcam_infos:
@@ -206,4 +200,5 @@ class OpenSeeFaceFacetrackingWrapper(Adw.Application):
         self.win.present()
 
     def on_close(self):
-        self.win.stop_core()
+        if face_wrapper.tracking_in_progress():
+            face_wrapper.stop_facetracker()
