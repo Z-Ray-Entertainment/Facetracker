@@ -1,5 +1,3 @@
-import importlib.metadata
-
-VERSION = importlib.metadata.version("Facetracker")
+VERSION = '@VERSION@'
 APP_NAME = "Facetracker"
 APP_ID = "de.zray.Facetracker"
