@@ -1,0 +1,26 @@
+{
+  "app-id": "de.zray.Facetracker",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "46",
+  "sdk": "org.gnome.Sdk",
+  "command": "facetracker-gui",
+  "finish-arg": [
+    "--share=network",
+    "--socket=fallback-x11",
+    "--device=dri",
+    "--socket=wayland"
+  ],
+  "modules": [
+    {
+      "name": "facetracker",
+      "builddir": true,
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "dir",
+          "path": "."
+        }
+      ]
+    }
+  ]
+}
