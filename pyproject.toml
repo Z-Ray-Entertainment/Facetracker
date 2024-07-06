@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "Facetracker"
 description = "A wrapper UI for OpenSeeFace's Facetracker"
-version = "24.7a1"
+dynamic = ["version"]
 readme = "README.md"
 license = { file = "LICENSE" }
 dependencies = [
@@ -44,3 +44,6 @@ Issues = "https://github.com/Z-Ray-Entertainment/Facetracker/issues"
 
 [tool.setuptools]
 py-modules = ["facetracker"]
+
+[tool.setuptools.dynamic]
+version = {attr = "facetracker.const.VERSION"}
