@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "Facetracker"
 description = "A wrapper UI for OpenSeeFace's Facetracker"
-version = "24.7a0"
+version = "24.7a1"
 readme = "README.md"
 license = { file = "LICENSE" }
 dependencies = [

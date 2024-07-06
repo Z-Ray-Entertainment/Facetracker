@@ -18,7 +18,7 @@
       "sources": [
         {
           "type": "archive",
-          "path": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/27.7a0/Facetracker_27.7a0_flatpak.zip",
+          "path": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/27.7a1/Facetracker_27.7a1_flatpak.zip",
           "sha256": "21b0e9b82102dd501bfacc6ea42a3e76ead583f0eb4c533a1f659374f3fac990"
         }
       ]
@@ -34,7 +34,7 @@
       "sources": [
         {
           "type": "archive",
-          "path": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/27.7a0/Facetracker_27.7a0_flatpak.zip",
+          "path": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/27.7a0/Facetracker_27.7a1_flatpak.zip",
           "sha256": "21b0e9b82102dd501bfacc6ea42a3e76ead583f0eb4c533a1f659374f3fac990"
         }
       ]
