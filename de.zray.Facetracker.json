@@ -7,7 +7,7 @@
   "finish-args": [
     "--share=network",
     "--socket=fallback-x11",
-    "--device=dri",
+    "--device=all",
     "--socket=wayland"
   ],
   "modules": [
@@ -15,6 +15,22 @@
       "name": "facetracker",
       "builddir": true,
       "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "dir",
+          "path": "."
+        }
+      ]
+    },
+    {
+      "name": "OpenSeeFace",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p /app/share/facetracker",
+        "echo $PWD",
+        "cp -r facetracker/osf /app/share/facetracker",
+        "chmod +x /app/share/facetracker/osf/facetracker"
+      ],
       "sources": [
         {
           "type": "dir",
