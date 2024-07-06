@@ -17,9 +17,9 @@
       "buildsystem": "meson",
       "sources": [
         {
-          "type": "archive",
-          "path": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/24.7a1/Facetracker_24.7a1_flatpak.zip",
-          "sha256": "21b0e9b82102dd501bfacc6ea42a3e76ead583f0eb4c533a1f659374f3fac990"
+          "type": "git",
+          "url": "https://github.com/Z-Ray-Entertainment/Facetracker",
+          "tag": "24.7a1"
         }
       ]
     },
@@ -27,15 +27,15 @@
       "name": "OpenSeeFace",
       "buildsystem": "simple",
       "build-commands": [
-        "mkdir -p /app/share/facetracker",
-        "cp -r facetracker/osf /app/share/facetracker",
+        "mkdir -p /app/share/facetracker/osf/",
+        "cp -r ./ /app/share/facetracker/osf/",
         "chmod +x /app/share/facetracker/osf/facetracker"
       ],
       "sources": [
         {
           "type": "archive",
-          "path": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/24.7a0/Facetracker_24.7a1_flatpak.zip",
-          "sha256": "21b0e9b82102dd501bfacc6ea42a3e76ead583f0eb4c533a1f659374f3fac990"
+          "url": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/24.7a1/osf_pre_build.zip",
+          "sha256": "98cda3bc8bd275edc630d83e687e098460d3bd857155069beef1cd24a74287c3"
         }
       ]
     }
