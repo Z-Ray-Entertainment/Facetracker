@@ -6,3 +6,4 @@ dist/
 flatpak_build/.flatpak-builder/
 flatpak_build/builddir/
 flatpak_build/repo/
+facetracker/osf/
