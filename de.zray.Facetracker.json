@@ -17,8 +17,9 @@
       "buildsystem": "meson",
       "sources": [
         {
-          "type": "dir",
-          "path": "."
+          "type": "archive",
+          "path": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/27.7a0/Facetracker_27.7a0_flatpak.zip",
+          "sha256": "21b0e9b82102dd501bfacc6ea42a3e76ead583f0eb4c533a1f659374f3fac990"
         }
       ]
     },
@@ -27,14 +28,14 @@
       "buildsystem": "simple",
       "build-commands": [
         "mkdir -p /app/share/facetracker",
-        "echo $PWD",
         "cp -r facetracker/osf /app/share/facetracker",
         "chmod +x /app/share/facetracker/osf/facetracker"
       ],
       "sources": [
         {
-          "type": "dir",
-          "path": "."
+          "type": "archive",
+          "path": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/27.7a0/Facetracker_27.7a0_flatpak.zip",
+          "sha256": "21b0e9b82102dd501bfacc6ea42a3e76ead583f0eb4c533a1f659374f3fac990"
         }
       ]
     }
