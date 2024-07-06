@@ -4,7 +4,7 @@
   "runtime-version": "46",
   "sdk": "org.gnome.Sdk",
   "command": "facetracker-gui",
-  "finish-arg": [
+  "finish-args": [
     "--share=network",
     "--socket=fallback-x11",
     "--device=dri",
