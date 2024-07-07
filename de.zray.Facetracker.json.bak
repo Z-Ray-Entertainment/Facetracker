@@ -17,8 +17,9 @@
       "buildsystem": "meson",
       "sources": [
         {
-          "type": "dir",
-          "path": "."
+          "type": "git",
+          "url": "https://github.com/Z-Ray-Entertainment/Facetracker",
+          "tag": "24.7a2"
         }
       ]
     },
@@ -27,15 +28,13 @@
       "buildsystem": "simple",
       "build-commands": [
         "mkdir -p /app/icons",
-        "cp facetracker/data/icons/*.svg /app/icons",
-
-        "mkdir -p /app/share/icons/hicolor/scalable/apps",
-        "install -D facetracker/data/icons/de.zray.Facetracker.svg /app/share/icons/hicolor/scalable/apps"
+        "cp facetracker/data/icons/*.svg /app/icons"
       ],
       "sources": [
         {
-          "type": "dir",
-          "path": "."
+          "type": "git",
+          "url": "https://github.com/Z-Ray-Entertainment/Facetracker",
+          "tag": "24.7a2"
         }
       ]
     },

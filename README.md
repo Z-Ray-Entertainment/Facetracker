@@ -8,10 +8,10 @@ Simple wrapper UI for OpenSeeFace's facetracker.
 - Select tracking model used by the facetracker
 - Set IP and Port for the tracker to listen
 
-![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/facetracker.png)
-![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/facetracker_2.png)
-![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/facetracker_3.png)
-![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/facetracker_4.png)
+![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/screenshots/facetracker.png)
+![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/screenshots/facetracker_2.png)
+![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/screenshots/facetracker_3.png)
+![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/screenshots/facetracker_4.png)
 
 ## Development Requirements
 
