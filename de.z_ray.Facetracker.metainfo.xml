@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-    <id>de.zray.Facetracker</id>
+    <id>de.z_ray.Facetracker</id>
     <name>Facetracker</name>
-    <developer id="de.zray">
+    <developer id="de.z_ray">
         <name>Z-Ray Entertainment</name>
     </developer>
-    <launchable type="desktop-id">de.zray.Facetracker.desktop</launchable>
+    <launchable type="desktop-id">de.z_ray.Facetracker.desktop</launchable>
     <summary>A GUI for OpenSeeFace</summary>
     <description>
         <p>Facetracker is a graphical interface for OpenSeeFace's facetracker to get trackign data from a webcam.</p>

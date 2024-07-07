@@ -1,6 +1,8 @@
 pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
 moduledir = join_paths(pkgdatadir, 'facetracker')
 
+subdir('data')
+
 conf = configuration_data()
 conf.set('VERSION', meson.project_version())
 

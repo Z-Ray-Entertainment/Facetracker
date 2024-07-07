@@ -1,5 +1,5 @@
 {
-  "app-id": "de.zray.Facetracker",
+  "app-id": "de.z_ray.Facetracker",
   "runtime": "org.gnome.Platform",
   "runtime-version": "46",
   "sdk": "org.gnome.Sdk",
@@ -12,24 +12,6 @@
     "--socket=wayland"
   ],
   "modules": [
-    {
-      "name": "facetracker-addional-files",
-      "buildsystem": "simple",
-      "build-commands": [
-        "install -D de.zray.Facetracker.desktop /app/share/applications/",
-
-        "install -D facetracker/data/icons/de.zray.Facetracker.svg /app/share/icons/hicolor/scalable/apps",
-
-        "install -Dp -m 644 de.zray.Facetracker.metainfo.xml /app/share/metainfo/de.zray.Facetracker.metainfo.xml"
-      ],
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/Z-Ray-Entertainment/Facetracker",
-          "tag": "24.7a3"
-        }
-      ]
-    },
     {
       "name": "OpenSeeFace",
       "buildsystem": "simple",
@@ -52,9 +34,8 @@
       "buildsystem": "meson",
       "sources": [
         {
-          "type": "git",
-          "url": "https://github.com/Z-Ray-Entertainment/Facetracker",
-          "tag": "24.7a3"
+          "type": "dir",
+          "path": "."
         }
       ]
     }

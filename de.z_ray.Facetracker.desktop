@@ -2,7 +2,7 @@
 Name=Facetracker
 Exec=facetracker-gui
 Type=Application
-Icon=de.zray.Facetracker
+Icon=de.z_ray.Facetracker
 Categories=Utility;
 Keywords=facetracker;vtube;webcam;
 Comment=A graphical interface for OpenSeeFace's Facetracker
