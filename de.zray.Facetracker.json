@@ -6,36 +6,29 @@
   "command": "facetracker-gui",
   "finish-args": [
     "--share=network",
+    "--share=ipc",
     "--socket=fallback-x11",
     "--device=all",
     "--socket=wayland"
   ],
   "modules": [
     {
-      "name": "facetracker",
-      "builddir": true,
-      "buildsystem": "meson",
-      "sources": [
-        {
-          "type": "dir",
-          "path": "."
-        }
-      ]
-    },
-    {
       "name": "facetracker-addional-files",
       "buildsystem": "simple",
       "build-commands": [
-        "mkdir -p /app/icons",
-        "cp facetracker/data/icons/*.svg /app/icons",
+        "mkdir -p /app/share/applications",
+        "install -D de.zray.Facetracker.desktop /app/share/applications/",
 
         "mkdir -p /app/share/icons/hicolor/scalable/apps",
-        "install -D facetracker/data/icons/de.zray.Facetracker.svg /app/share/icons/hicolor/scalable/apps"
+        "install -D facetracker/data/icons/de.zray.Facetracker.svg /app/share/icons/hicolor/scalable/apps",
+
+        "install -Dp -m 644 de.zray.Facetracker.metainfo.xml /app/share/metainfo/de.zray.Facetracker.metainfo.xml"
       ],
       "sources": [
         {
-          "type": "dir",
-          "path": "."
+          "type": "git",
+          "url": "https://github.com/Z-Ray-Entertainment/Facetracker",
+          "tag": "24.7a3"
         }
       ]
     },
@@ -50,8 +43,20 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/24.7a2/osf_pre_build.zip",
+          "url": "https://github.com/Z-Ray-Entertainment/Facetracker/releases/download/24.7a3/osf_pre_build.zip",
           "sha256": "98cda3bc8bd275edc630d83e687e098460d3bd857155069beef1cd24a74287c3"
+        }
+      ]
+    },
+    {
+      "name": "facetracker",
+      "builddir": true,
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/Z-Ray-Entertainment/Facetracker",
+          "tag": "24.7a3"
         }
       ]
     }

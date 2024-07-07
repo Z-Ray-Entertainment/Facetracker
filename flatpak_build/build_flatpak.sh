@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir ../de.zray.Facetracker.json
+flatpak-builder --force-clean --sandbox --user --install --install-deps-from=flathub --ccache --mirror-screenshots-url=https://dl.flathub.org/media/ --repo=repo builddir ../de.zray.Facetracker.json
