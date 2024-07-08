@@ -1,6 +1,10 @@
 # OpenSeeFace Facetracking Wrapper
 
+<div style="text-align: center;">
+
 ![logo](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/icons/hicolor/scalable/apps/de.z_ray.Facetracker.svg)
+
+</div>
 
 Simple wrapper UI for OpenSeeFace's facetracker.  
 
@@ -9,9 +13,21 @@ Simple wrapper UI for OpenSeeFace's facetracker.
 - Select video mode (width, height, frames per second)
 - Select tracking model used by the facetracker
 - Set IP and Port for the tracker to listen
+<div style="text-align: center;">
 
 ![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/screenshots/facetracker.png)
 ![screenshot](https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/main/facetracker/data/screenshots/facetracker_2.png)
+
+</div>
+
+<!--
+### Download
+<div style="text-align: center;">
+<a href="https://flathub.org/apps/de.z_ray.Facetracker">
+  <img width='240' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.png'/>
+</a>
+</div>
+-->
 
 ## Development Requirements
 
