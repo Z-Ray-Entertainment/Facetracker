@@ -6,25 +6,35 @@
         <name>Z-Ray Entertainment</name>
     </developer>
     <launchable type="desktop-id">de.z_ray.Facetracker.desktop</launchable>
-    <summary>A GUI for OpenSeeFace</summary>
+    <branding>
+        <color type="primary" scheme_preference="light">#241f31</color>
+        <color type="primary" scheme_preference="dark">#613583</color>
+    </branding>
+    <summary>Face tracking made easy</summary>
     <description>
-        <p>Facetracker is a graphical interface for OpenSeeFace's facetracker to get trackign data from a webcam.</p>
-        <p>OpenSeeFaces allows users to gather facial tracking data from their webcam or a file.</p>
-        <p>A common use case for this application might be VTubbing on Linux as most VTubing software is written for Windows they do not fully work with webcams due to incomplete webcam support by Wine and Proton.</p>
+        <p>
+            This is a graphical user interface to launch a face tracker locally on your machine to gain tracking data
+            from a webcam. These tracking data can then be used by other applications like VTubbing Software to bring a
+            virtual avatar to live.
+        </p>
     </description>
 
     <metadata_license>CC0-1.0</metadata_license>
     <project_license>MIT</project_license>
-    <content_rating type="oars-1.1" />
+    <content_rating type="oars-1.1"/>
 
     <screenshots>
         <screenshot type="default">
             <caption>Main Window</caption>
-            <image>https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a4/facetracker/data/screenshots/facetracker.png</image>
+            <image>
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a4/facetracker/data/screenshots/facetracker.png
+            </image>
         </screenshot>
         <screenshot>
             <caption>Advanced Settings</caption>
-            <image>https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a4/facetracker/data/screenshots/facetracker_2.png</image>
+            <image>
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a4/facetracker/data/screenshots/facetracker_2.png
+            </image>
         </screenshot>
     </screenshots>
 
@@ -37,6 +47,7 @@
             <description>
                 <ul>
                     <li>Improved app icon</li>
+                    <li>Split tracking and server settings in two</li>
                     <li>Added multilanguage support</li>
                     <li>Added german translation</li>
                 </ul>
