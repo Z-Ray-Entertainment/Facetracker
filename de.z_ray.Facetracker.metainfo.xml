@@ -27,13 +27,13 @@
         <screenshot type="default">
             <caption>Main Window</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a4/facetracker/data/screenshots/facetracker.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a6/facetracker/data/screenshots/facetracker.png
             </image>
         </screenshot>
         <screenshot>
             <caption>Advanced Settings</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a4/facetracker/data/screenshots/facetracker_2.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a6/facetracker/data/screenshots/facetracker_2.png
             </image>
         </screenshot>
     </screenshots>
@@ -48,7 +48,7 @@
                 <ul>
                     <li>Improved app icon</li>
                     <li>Split tracking and server settings in two</li>
-                    <li>Added multilanguage support</li>
+                    <li>Added language support</li>
                     <li>Added german translation</li>
                 </ul>
             </description>
