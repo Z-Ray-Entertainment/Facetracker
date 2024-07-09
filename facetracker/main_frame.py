@@ -29,7 +29,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.port_text: Adw.EntryRow
         self.webcam_infos = webcam_info.get_webcams()
 
-        self.set_title(APP_NAME + " (" + VERSION + ")")
+        self.set_title(APP_NAME)
         self.set_default_size(600, 0)
         self._build_title_bar()
         self._build_main_content()
