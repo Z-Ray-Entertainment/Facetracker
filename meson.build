@@ -1,10 +1,11 @@
 project('facetracker',
-  version: '24.7a5',
+  version: '24.7a6',
   meson_version: '>= 0.62.0',
   default_options: ['warning_level=2', 'werror=false'],
 )
 
 gnome = import('gnome')
+i18n = import('i18n')
 
 appstream_file = 'de.z_ray.Facetracker.metainfo.xml'
 install_data(appstream_file, install_dir: join_paths(get_option('datadir'), 'metainfo'))

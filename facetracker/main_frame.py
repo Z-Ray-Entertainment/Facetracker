@@ -1,12 +1,20 @@
+import gettext
+import locale
+from os import environ
+
 import gi
 
 from facetracker import webcam_info, face_wrapper
-from facetracker.const import VERSION, APP_NAME
+from facetracker.const import VERSION, APP_NAME, LOCALE_DIR
 from facetracker.webcam_info import VideoMode
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 from gi.repository import Gtk, Adw
+
+locale.bindtextdomain("facetracker", LOCALE_DIR)
+locale.textdomain("facetracker")
+_ = gettext.gettext
 
 
 class MainWindow(Gtk.ApplicationWindow):
@@ -32,7 +40,7 @@ class MainWindow(Gtk.ApplicationWindow):
         header = Gtk.HeaderBar()
 
         self.bt_launch = Gtk.ToggleButton(label="Start Tracking")
-        self.bt_launch.set_tooltip_text("Start/Stop OpenSeeFace Facetracker")
+        self.bt_launch.set_tooltip_text(_("Start/Stop OpenSeeFace Facetracker"))
         self.bt_launch.connect("clicked", self._start_stop_facetracker)
         self.bt_launch.add_css_class("suggested-action")
         header.pack_start(self.bt_launch)
@@ -71,7 +79,7 @@ class MainWindow(Gtk.ApplicationWindow):
             boxed_list.append(self.cam_combo_row)
 
             self.advanced_row = Adw.ExpanderRow()
-            self.advanced_row.set_title("Advanced Settings")
+            self.advanced_row.set_title(_("Advanced Settings"))
             self._build_video_modes()
             self.advanced_row.add_row(self.video_modes_row)
             self._build_tracking_mode_selection()
@@ -80,7 +88,7 @@ class MainWindow(Gtk.ApplicationWindow):
             boxed_list.append(self.advanced_row)
         else:
             no_cams_label = Gtk.Label()
-            no_cams_label.set_label("No webcams found!")
+            no_cams_label.set_label(_("No webcams found!"))
             main_box.append(no_cams_label)
 
         self.set_child(main_box)
@@ -96,15 +104,15 @@ class MainWindow(Gtk.ApplicationWindow):
                         Model -3 is between models 0 and -1. (default: 3)
         """
         self.tracking_mode_row = Adw.ComboRow()
-        self.tracking_mode_row.set_title("Model:")
-        self.tracking_mode_row.set_subtitle("Set the tracking model used by the facetracker")
+        self.tracking_mode_row.set_title(_("Model:"))
+        self.tracking_mode_row.set_subtitle(_("Set the tracking model used by the facetracker"))
         model_string_list = Gtk.StringList()
-        model_string_list.append("-1: Superfast")
-        model_string_list.append("0: Fastest")
-        model_string_list.append("1: Faster")
-        model_string_list.append("2: Normal")
-        model_string_list.append("3: Default")
-        model_string_list.append("4: Wink optimized")
+        model_string_list.append("-1: " + _("Superfast"))
+        model_string_list.append("0: " + _("Fastest"))
+        model_string_list.append("1: " + _("Faster"))
+        model_string_list.append("2: " + _("Normal"))
+        model_string_list.append("3: " + _("Default"))
+        model_string_list.append("4: " + _("Wink optimized"))
         self.tracking_mode_row.set_model(model_string_list)
         self.tracking_mode_row.set_selected(4)
 
@@ -112,10 +120,10 @@ class MainWindow(Gtk.ApplicationWindow):
         ip_and_port_row = Adw.ActionRow()
 
         self.ip_text = Adw.EntryRow()
-        self.ip_text.set_title("IP Address:")
+        self.ip_text.set_title(_("IP Address:"))
         self.ip_text.set_text("0.0.0.0")
         self.port_text = Adw.EntryRow()
-        self.port_text.set_title("Port:")
+        self.port_text.set_title(_("Port:"))
         self.port_text.set_text("11573")
         ip_and_port_row.add_prefix(self.ip_text)
         ip_and_port_row.add_suffix(self.port_text)
@@ -123,8 +131,8 @@ class MainWindow(Gtk.ApplicationWindow):
 
     def _build_webcam_cb(self):
         self.cam_combo_row = Adw.ComboRow()
-        self.cam_combo_row.set_title("Webcam")
-        self.cam_combo_row.set_subtitle("Select which camera to use for tracking")
+        self.cam_combo_row.set_title(_("Webcam"))
+        self.cam_combo_row.set_subtitle(_("Select which camera to use for tracking"))
         self.cam_combo_row.set_activatable(True)
         cam_string_list = Gtk.StringList()
 
@@ -137,8 +145,8 @@ class MainWindow(Gtk.ApplicationWindow):
 
     def _build_video_modes(self):
         self.video_modes_row = Adw.ComboRow()
-        self.video_modes_row.set_title("Video Mode:")
-        self.video_modes_row.set_subtitle("Select the video mode to be used for tracking")
+        self.video_modes_row.set_title(_("Video Mode:"))
+        self.video_modes_row.set_subtitle(_("Select the video mode to be used for tracking"))
         mode_string_list = Gtk.StringList()
         selected_cam = self._get_webcam_by_index(self._get_selected_camera_index())
         for mode in selected_cam.video_modes:
@@ -172,7 +180,7 @@ class MainWindow(Gtk.ApplicationWindow):
 
                 if face_wrapper.run_facetracker(video_width, video_height, frame_rate, camera_index, tracking_mode,
                                                 server_ip, server_port):
-                    self.bt_launch.set_label("Stop Tracking")
+                    self.bt_launch.set_label(_("Stop Tracking"))
                     self.bt_launch.remove_css_class("suggested-action")
                     self.bt_launch.add_css_class("destructive-action")
             else:
@@ -180,7 +188,7 @@ class MainWindow(Gtk.ApplicationWindow):
                     if face_wrapper.stop_facetracker():
                         self.bt_launch.add_css_class("suggested-action")
                         self.bt_launch.remove_css_class("destructive-action")
-                        self.bt_launch.set_label("Start Tracking")
+                        self.bt_launch.set_label(_("Start Tracking"))
 
     def _get_webcam_by_index(self, index: int):
         for cam in self.webcam_infos:

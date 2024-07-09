@@ -1,0 +1,1 @@
+xgettext -d base -o facetracker/data/po/facetracker.pot facetracker/*.py

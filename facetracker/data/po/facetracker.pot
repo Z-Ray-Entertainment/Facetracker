@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-09 17:32+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: facetracker/main_frame.py:41
+msgid "Start/Stop OpenSeeFace Facetracker"
+msgstr ""
+
+#: facetracker/main_frame.py:80
+msgid "Advanced Settings"
+msgstr ""
+
+#: facetracker/main_frame.py:89
+msgid "No webcams found!"
+msgstr ""
+
+#: facetracker/main_frame.py:105
+msgid "Model:"
+msgstr ""
+
+#: facetracker/main_frame.py:106
+msgid "Set the tracking model used by the facetracker"
+msgstr ""
+
+#: facetracker/main_frame.py:108
+msgid "Superfast"
+msgstr ""
+
+#: facetracker/main_frame.py:109
+msgid "Fastest"
+msgstr ""
+
+#: facetracker/main_frame.py:110
+msgid "Faster"
+msgstr ""
+
+#: facetracker/main_frame.py:111
+msgid "Normal"
+msgstr ""
+
+#: facetracker/main_frame.py:112
+msgid "Default"
+msgstr ""
+
+#: facetracker/main_frame.py:113
+msgid "Wink optimized"
+msgstr ""
+
+#: facetracker/main_frame.py:121
+msgid "IP Address:"
+msgstr ""
+
+#: facetracker/main_frame.py:124
+msgid "Port:"
+msgstr ""
+
+#: facetracker/main_frame.py:132
+msgid "Webcam"
+msgstr ""
+
+#: facetracker/main_frame.py:133
+msgid "Select which camera to use for tracking"
+msgstr ""
+
+#: facetracker/main_frame.py:146
+msgid "Video Mode:"
+msgstr ""
+
+#: facetracker/main_frame.py:147
+msgid "Select the video mode to be used for tracking"
+msgstr ""
+
+#: facetracker/main_frame.py:181
+msgid "Stop Tracking"
+msgstr ""
+
+#: facetracker/main_frame.py:189
+msgid "Start Tracking"
+msgstr ""

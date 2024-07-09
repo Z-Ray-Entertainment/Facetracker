@@ -23,8 +23,16 @@ facetracer_bin = configure_file(
   install_mode: 'r-xr-xr-x',
 )
 
+configure_file(
+  input: 'const.py',
+  output: 'const.py',
+  configuration: conf,
+  install: true,
+  install_dir: moduledir,
+  install_mode: 'r-xr--r--',
+)
+
 facetracker_sources = files([
-    'const.py',
     'face_wrapper.py',
     'main_frame.py',
     'webcam_info.py'
