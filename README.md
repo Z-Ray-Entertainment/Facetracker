@@ -20,14 +20,12 @@ Simple wrapper UI for OpenSeeFace's facetracker.
 
 </div>
 
-<!--
 ### Download
 <div style="text-align: center;">
 <a href="https://flathub.org/apps/de.z_ray.Facetracker">
   <img width='240' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.png'/>
 </a>
 </div>
--->
 
 ## Development Requirements
 
