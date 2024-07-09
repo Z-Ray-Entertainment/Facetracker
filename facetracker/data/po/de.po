@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 17:32+0000\n"
-"PO-Revision-Date: 2024-07-09 19:39+0200\n"
+"POT-Creation-Date: 2024-07-09 19:23+0000\n"
+"PO-Revision-Date: 2024-07-09 21:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -18,78 +18,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: facetracker/main_frame.py:41
-msgid "Start/Stop OpenSeeFace Facetracker"
-msgstr "OpenSeeFace Gesichtsverfolgung starten/stoppen"
+#: facetracker/main_frame.py:42
+msgid "Start or Stop the OpenSeeFace face tracker"
+msgstr "OpenSeeFace Gesichtsverfolgung starten oder stoppen"
 
-#: facetracker/main_frame.py:80
-msgid "Advanced Settings"
-msgstr "Erweiterte Einstellungen"
+#: facetracker/main_frame.py:81
+msgid "Face tracking Settings"
+msgstr "Einstellungen für die Gesichtsverfolgung"
 
 #: facetracker/main_frame.py:89
+msgid "Server Settings"
+msgstr "Servereinstellungen"
+
+#: facetracker/main_frame.py:94
 msgid "No webcams found!"
 msgstr "Keine Kameras gefunden!"
 
-#: facetracker/main_frame.py:105
+#: facetracker/main_frame.py:110
 msgid "Model:"
 msgstr "Modell:"
 
-#: facetracker/main_frame.py:106
-msgid "Set the tracking model used by the facetracker"
-msgstr "Setzt das Gesichtsverfolgungsmodel des Gesichtsverfolgers"
+#: facetracker/main_frame.py:111
+msgid "Set the tracking model used by the face tracker"
+msgstr "Setzt das Gesichtserkennungsmodel des Gesichtsverfolgers"
 
-#: facetracker/main_frame.py:108
+#: facetracker/main_frame.py:113
 msgid "Superfast"
 msgstr "Sehr Schnell"
 
-#: facetracker/main_frame.py:109
+#: facetracker/main_frame.py:114
 msgid "Fastest"
 msgstr "Am Schnellsten"
 
-#: facetracker/main_frame.py:110
+#: facetracker/main_frame.py:115
 msgid "Faster"
 msgstr "Schneller"
 
-#: facetracker/main_frame.py:111
+#: facetracker/main_frame.py:116
 msgid "Normal"
 msgstr "Normal"
 
-#: facetracker/main_frame.py:112
+#: facetracker/main_frame.py:117
 msgid "Default"
 msgstr "Standart"
 
-#: facetracker/main_frame.py:113
+#: facetracker/main_frame.py:118
 msgid "Wink optimized"
 msgstr "Zwinkeroptimiert"
 
-#: facetracker/main_frame.py:121
+#: facetracker/main_frame.py:126
 msgid "IP Address:"
 msgstr "IP Adresse:"
 
-#: facetracker/main_frame.py:124
+#: facetracker/main_frame.py:129
 msgid "Port:"
 msgstr "Port:"
 
-#: facetracker/main_frame.py:132
+#: facetracker/main_frame.py:137
 msgid "Webcam"
 msgstr "Kamera"
 
-#: facetracker/main_frame.py:133
-msgid "Select which camera to use for tracking"
+#: facetracker/main_frame.py:138
+msgid "Select which camera to use for face tracking"
 msgstr "Wählt welche Kamera für die Gesichtsverfolgung benutzt werden soll"
 
-#: facetracker/main_frame.py:146
+#: facetracker/main_frame.py:150
 msgid "Video Mode:"
 msgstr "Videomodus:"
 
-#: facetracker/main_frame.py:147
-msgid "Select the video mode to be used for tracking"
-msgstr "Wählt den Videomodus der für die Gesichtsverfolgung benutzt wird"
+#: facetracker/main_frame.py:151
+msgid "Select the video mode to be used for face tracking"
+msgstr "Wählt den Videomodus der für die Gesichtsverfolgung benutzt werden soll"
 
-#: facetracker/main_frame.py:181
-msgid "Stop Tracking"
+#: facetracker/main_frame.py:185
+msgid "Stop face tracking"
 msgstr "Gesichtsverfolgung anhalten"
 
-#: facetracker/main_frame.py:189
-msgid "Start Tracking"
+#: facetracker/main_frame.py:193
+msgid "Start face tracking"
 msgstr "Gesichtsverfolgung starten"
