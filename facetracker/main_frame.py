@@ -71,7 +71,8 @@ class MainWindow(Gtk.ApplicationWindow):
 
         self.tracking_settings_row = Adw.ExpanderRow()
         self.tracking_settings_row.set_title(_("Tracking Settings"))
-        self._build_video_modes()
+        self.video_modes_row = Adw.ComboRow()
+        self._build_video_modes(None, None)
         self.tracking_settings_row.add_row(self.video_modes_row)
         self._build_tracking_mode_selection()
         self.tracking_settings_row.add_row(self.tracking_mode_row)
@@ -146,9 +147,9 @@ class MainWindow(Gtk.ApplicationWindow):
             name = index + ": " + webcam.device_name
             cam_string_list.append(name)
         self.cam_combo_row.set_model(cam_string_list)
+        self.cam_combo_row.connect("notify::selected-item", self._build_video_modes)
 
-    def _build_video_modes(self):
-        self.video_modes_row = Adw.ComboRow()
+    def _build_video_modes(self, widget, _a):
         self.video_modes_row.set_title(_("Video Mode:"))
         self.video_modes_row.set_subtitle(_("Video mode to be used for face tracking"))
         mode_string_list = Gtk.StringList()
