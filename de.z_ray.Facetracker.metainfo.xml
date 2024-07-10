@@ -49,10 +49,10 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
-        <release version="24.7a8" date="2024-10-07">
+        <release version="24.7a8" date="2024-10-08">
             <description>
                 <ul>
-                    <li>Improved the camera not found view</li>
+                    <li>Overhauled the camera not found view and allow for reloading the interface</li>
                     <li>Replaced the start / stop face tracker button with an icon only variant</li>
                 </ul>
             </description>
