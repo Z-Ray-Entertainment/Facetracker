@@ -219,7 +219,7 @@ class OpenSeeFaceFacetrackingWrapper(Adw.Application):
             artists=[
                 "Vortex Acherontic https://github.com/VortexAcherontic",
             ],
-            translator_credits="Vortex Acherontic https://github.com/VortexAcherontic",
+            translator_credits=_("translator-credits"),
             license_type=Gtk.License.MIT_X11,
             website="https://github.com/Z-Ray-Entertainment/Facetracker",
             issue_url="https://github.com/Z-Ray-Entertainment/Facetracker/issues",

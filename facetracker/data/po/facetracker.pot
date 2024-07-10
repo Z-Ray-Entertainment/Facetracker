@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-10 10:58+0000\n"
+"POT-Creation-Date: 2024-07-10 11:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,4 +95,8 @@ msgstr ""
 
 #: facetracker/main_frame.py:173
 msgid "Stop"
+msgstr ""
+
+#: facetracker/main_frame.py:222
+msgid "translator-credits"
 msgstr ""
