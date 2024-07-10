@@ -31,7 +31,7 @@ class MainWindow(Gtk.ApplicationWindow):
         header = Gtk.HeaderBar()
 
         menu = Gio.Menu.new()
-        menu.append("About", "app.about")
+        menu.append(_("About"), "app.about")
         self.popover = Gtk.PopoverMenu()
         self.popover.set_menu_model(menu)
         self.hamburger = Gtk.MenuButton()
@@ -223,5 +223,8 @@ class OpenSeeFaceFacetrackingWrapper(Adw.Application):
             license_type=Gtk.License.MIT_X11,
             website="https://github.com/Z-Ray-Entertainment/Facetracker",
             issue_url="https://github.com/Z-Ray-Entertainment/Facetracker/issues",
+            comments=_("Facetracker is a a graphical user interface for OpenSeeFace. "
+                       "OpenSeeFace is an independent piece of software and not associated with Facetracker. "
+                       "Visit OpenSeeFace on <a href='https://github.com/emilianavt/OpenSeeFace'>Github</a>.")
         )
         about_ui.present(self.props.active_window)

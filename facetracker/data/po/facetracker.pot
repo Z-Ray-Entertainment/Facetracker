@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-10 11:16+0000\n"
+"POT-Creation-Date: 2024-07-10 11:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: facetracker/main_frame.py:34
+msgid "About"
+msgstr ""
 
 #: facetracker/main_frame.py:42 facetracker/main_frame.py:181
 msgid "Start"
@@ -99,4 +103,12 @@ msgstr ""
 
 #: facetracker/main_frame.py:222
 msgid "translator-credits"
+msgstr ""
+
+#: facetracker/main_frame.py:226
+msgid ""
+"Facetracker is a a graphical user interface for OpenSeeFace. OpenSeeFace is "
+"an independent piece of software and not associated with Facetracker. Visit "
+"OpenSeeFace on <a href='https://github.com/emilianavt/OpenSeeFace'>Github</"
+"a>."
 msgstr ""
