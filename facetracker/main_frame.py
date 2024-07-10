@@ -1,18 +1,18 @@
 import gi
 
 from facetracker import webcam_info, face_wrapper
-from facetracker.const import VERSION, APP_NAME
+from facetracker.const import APP_NAME, VERSION
 from facetracker.webcam_info import VideoMode
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
-from gi.repository import Gtk, Adw
+from gi.repository import Gtk, Adw, Gio
 
 
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.about_ui: Adw.AboutWindow
+
         self.bt_launch: Gtk.ToggleButton
         self.cam_combo_row: Adw.ComboRow
         self.video_modes_row: Adw.ComboRow
@@ -30,6 +30,15 @@ class MainWindow(Gtk.ApplicationWindow):
     def _build_title_bar(self):
         header = Gtk.HeaderBar()
 
+        menu = Gio.Menu.new()
+        menu.append("About", "app.about")
+        self.popover = Gtk.PopoverMenu()
+        self.popover.set_menu_model(menu)
+        self.hamburger = Gtk.MenuButton()
+        self.hamburger.set_popover(self.popover)
+        self.hamburger.set_icon_name("open-menu-symbolic")
+        header.pack_end(self.hamburger)
+
         self.bt_launch = Gtk.ToggleButton(label=_("Start face tracking"))
         self.bt_launch.set_tooltip_text(_("Start or Stop the OpenSeeFace face tracker"))
         self.bt_launch.connect("clicked", self._start_stop_facetracker)
@@ -39,19 +48,6 @@ class MainWindow(Gtk.ApplicationWindow):
 
     def _build_header_menu(self):
         pass
-
-    def _build_about(self):
-        self.about_ui = Adw.AboutWindow()
-        self.about_ui.set_transient_for(self)
-        self.about_ui.set_application_name(APP_NAME)
-        self.about_ui.set_version(VERSION)
-        self.about_ui.set_developer_name("Imo 'Vortex Acherontic' Hester")
-        self.about_ui.set_license_type(license_type=Gtk.License.MIT_X11)
-        self.about_ui.set_comments("A graphical user interface to launch OpenSeeFace's Facetracker."
-                                   "\nThis application is meant to be used in conjunction with the likes of "
-                                   "VTube Studio VSeeFace and the likes as these do not offer a native Linux version"
-                                   "and thus facetracking using a Webcam does not work in Wine or Proton.")
-        self.about_ui.show()
 
     def _build_main_content(self):
         main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
@@ -193,9 +189,15 @@ class MainWindow(Gtk.ApplicationWindow):
 class OpenSeeFaceFacetrackingWrapper(Adw.Application):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.create_action("about", self.build_about)
         self.connect("activate", self.on_activate)
         self.connect("shutdown", self.on_close)
         self.win = None
+
+    def create_action(self, name, callback):
+        action = Gio.SimpleAction.new(name, None)
+        action.connect("activate", callback)
+        self.add_action(action)
 
     def on_activate(self, app):
         self.win = MainWindow(application=app)
@@ -204,3 +206,22 @@ class OpenSeeFaceFacetrackingWrapper(Adw.Application):
     def on_close(self):
         if face_wrapper.tracking_in_progress():
             face_wrapper.stop_facetracker()
+
+    def build_about(self, widget, _a):
+        about_ui = Adw.AboutDialog(
+            application_name="Facetracker",
+            application_icon="de.z_ray.Facetracker",
+            developer_name="Z-Ray Entertainment",
+            version=VERSION,
+            developers=[
+                "Vortex Acherontic https://github.com/VortexAcherontic",
+            ],
+            artists=[
+                "Vortex Acherontic https://github.com/VortexAcherontic",
+            ],
+            translator_credits="Vortex Acherontic https://github.com/VortexAcherontic",
+            license_type=Gtk.License.MIT_X11,
+            website="https://github.com/Z-Ray-Entertainment/Facetracker",
+            issue_url="https://github.com/Z-Ray-Entertainment/Facetracker/issues",
+        )
+        about_ui.present(self.props.active_window)
