@@ -21,13 +21,11 @@ class MainWindow(Gtk.ApplicationWindow):
         self.ip_text: Adw.EntryRow
         self.port_text: Adw.EntryRow
         self.webcam_infos = webcam_info.get_webcams()
-        self.webcam_infos = []
 
         self._reset_main_box()
         self.set_title(APP_NAME)
         self._build_title_bar()
         self._build_main_content()
-        self._build_header_menu()
 
     def _reset_main_box(self):
         self.main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
@@ -89,7 +87,7 @@ class MainWindow(Gtk.ApplicationWindow):
         no_cams_found_status = Adw.StatusPage()
         no_cams_found_status.set_title(_("No webcams found!"))
         no_cams_found_status.set_description(
-            _("Please verify a webcam connected to the computer and not disabled by a hardware switch. Then press the reload button"))
+            _("Please verify a webcam connected to the computer and is not disabled by a hardware switch. Then press the reload button."))
         no_cams_found_status.set_icon_name("camera-disabled-symbolic")
 
         bt_refresh = Gtk.Button.new_from_icon_name("view-refresh-symbolic")

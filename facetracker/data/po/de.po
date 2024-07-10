@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-10 11:34+0000\n"
-"PO-Revision-Date: 2024-07-10 13:35+0200\n"
+"POT-Creation-Date: 2024-07-10 15:34+0000\n"
+"PO-Revision-Date: 2024-07-10 17:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -18,95 +18,100 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: facetracker/main_frame.py:34
+#: facetracker/main_frame.py:39
 msgid "About"
 msgstr "Über"
 
-#: facetracker/main_frame.py:42 facetracker/main_frame.py:181
-msgid "Start"
-msgstr "Start"
+#: facetracker/main_frame.py:48
+msgid "Start or Stop the face tracker"
+msgstr "Den Gesichtsverfolger starten oder stoppen"
 
-#: facetracker/main_frame.py:43
-msgid "Start or Stop the OpenSeeFace face tracker"
-msgstr "OpenSeeFace Gesichtsverfolgung starten oder stoppen"
-
-#: facetracker/main_frame.py:69
+#: facetracker/main_frame.py:75
 msgid "Tracking Settings"
 msgstr "Gesichtsverfolgungseinstellungen"
 
-#: facetracker/main_frame.py:77
+#: facetracker/main_frame.py:83
 msgid "Server Settings"
 msgstr "Servereinstellungen"
 
-#: facetracker/main_frame.py:82
+#: facetracker/main_frame.py:90
 msgid "No webcams found!"
 msgstr "Keine Kameras gefunden!"
 
-#: facetracker/main_frame.py:98
+#: facetracker/main_frame.py:92
+msgid ""
+"Please verify a webcam connected to the computer and is not disabled by a "
+"hardware switch. Then press the reload button."
+msgstr ""
+"Bitte stellen Sie sicher das eine Kamera mit Ihrem System verbunden ist und "
+"nicht durch einen Hardwareschalter deaktiviert wurde. Anschließend klicken "
+"Sie auf den Neuladen-Knopf."
+
+#: facetracker/main_frame.py:96
+msgid "Rescan for webcams"
+msgstr "Nach Kameras suchen"
+
+#: facetracker/main_frame.py:114
 msgid "Model:"
 msgstr "Modell:"
 
-#: facetracker/main_frame.py:99
+#: facetracker/main_frame.py:115
 msgid "Tracking model used by the face tracker"
 msgstr "Gesichtserkennungsmodel des Gesichtsverfolgers"
 
-#: facetracker/main_frame.py:101
+#: facetracker/main_frame.py:117
 msgid "Superfast"
 msgstr "Sehr Schnell"
 
-#: facetracker/main_frame.py:102
+#: facetracker/main_frame.py:118
 msgid "Fastest"
 msgstr "Am Schnellsten"
 
-#: facetracker/main_frame.py:103
+#: facetracker/main_frame.py:119
 msgid "Faster"
 msgstr "Schneller"
 
-#: facetracker/main_frame.py:104
+#: facetracker/main_frame.py:120
 msgid "Normal"
 msgstr "Normal"
 
-#: facetracker/main_frame.py:105
+#: facetracker/main_frame.py:121
 msgid "Default"
 msgstr "Standart"
 
-#: facetracker/main_frame.py:106
+#: facetracker/main_frame.py:122
 msgid "Wink optimized"
 msgstr "Zwinkeroptimiert"
 
-#: facetracker/main_frame.py:114
+#: facetracker/main_frame.py:130
 msgid "IP Address:"
 msgstr "IP Adresse:"
 
-#: facetracker/main_frame.py:117
+#: facetracker/main_frame.py:133
 msgid "Port:"
 msgstr "Port:"
 
-#: facetracker/main_frame.py:125
+#: facetracker/main_frame.py:141
 msgid "Webcam"
 msgstr "Kamera"
 
-#: facetracker/main_frame.py:126
+#: facetracker/main_frame.py:142
 msgid "Camera to use for face tracking"
 msgstr "Kamera für die Gesichtsverfolgung"
 
-#: facetracker/main_frame.py:138
+#: facetracker/main_frame.py:154
 msgid "Video Mode:"
 msgstr "Videomodus:"
 
-#: facetracker/main_frame.py:139
+#: facetracker/main_frame.py:155
 msgid "Video mode to be used for face tracking"
 msgstr "Videomodus der Gesichtsverfolgung"
 
-#: facetracker/main_frame.py:173
-msgid "Stop"
-msgstr "Stopp"
-
-#: facetracker/main_frame.py:222
+#: facetracker/main_frame.py:244
 msgid "translator-credits"
 msgstr "Vortex Acherotnic https://github.com/VortexAcherontic"
 
-#: facetracker/main_frame.py:226
+#: facetracker/main_frame.py:248
 msgid ""
 "Facetracker is a a graphical user interface for OpenSeeFace. OpenSeeFace is "
 "an independent piece of software and not associated with Facetracker. Visit "
@@ -117,6 +122,12 @@ msgstr ""
 "OpenSeeFace ist ein unabhängiges Stück Software und nicht assoziiert mit "
 "Facetracker. Besuchen Sie OpenSeeFace auf <a href='https://github.com/"
 "emilianavt/OpenSeeFace'>Github</a>."
+
+#~ msgid "Start"
+#~ msgstr "Start"
+
+#~ msgid "Stop"
+#~ msgstr "Stopp"
 
 #~ msgid "Stop face tracking"
 #~ msgstr "Gesichtsverfolgung anhalten"

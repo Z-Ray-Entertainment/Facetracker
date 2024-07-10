@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-10 11:34+0000\n"
+"POT-Creation-Date: 2024-07-10 15:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,95 +17,97 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: facetracker/main_frame.py:34
+#: facetracker/main_frame.py:39
 msgid "About"
 msgstr ""
 
-#: facetracker/main_frame.py:42 facetracker/main_frame.py:181
-msgid "Start"
+#: facetracker/main_frame.py:48
+msgid "Start or Stop the face tracker"
 msgstr ""
 
-#: facetracker/main_frame.py:43
-msgid "Start or Stop the OpenSeeFace face tracker"
-msgstr ""
-
-#: facetracker/main_frame.py:69
+#: facetracker/main_frame.py:75
 msgid "Tracking Settings"
 msgstr ""
 
-#: facetracker/main_frame.py:77
+#: facetracker/main_frame.py:83
 msgid "Server Settings"
 msgstr ""
 
-#: facetracker/main_frame.py:82
+#: facetracker/main_frame.py:90
 msgid "No webcams found!"
 msgstr ""
 
-#: facetracker/main_frame.py:98
-msgid "Model:"
+#: facetracker/main_frame.py:92
+msgid ""
+"Please verify a webcam connected to the computer and is not disabled by a "
+"hardware switch. Then press the reload button."
 msgstr ""
 
-#: facetracker/main_frame.py:99
-msgid "Tracking model used by the face tracker"
-msgstr ""
-
-#: facetracker/main_frame.py:101
-msgid "Superfast"
-msgstr ""
-
-#: facetracker/main_frame.py:102
-msgid "Fastest"
-msgstr ""
-
-#: facetracker/main_frame.py:103
-msgid "Faster"
-msgstr ""
-
-#: facetracker/main_frame.py:104
-msgid "Normal"
-msgstr ""
-
-#: facetracker/main_frame.py:105
-msgid "Default"
-msgstr ""
-
-#: facetracker/main_frame.py:106
-msgid "Wink optimized"
+#: facetracker/main_frame.py:96
+msgid "Rescan for webcams"
 msgstr ""
 
 #: facetracker/main_frame.py:114
-msgid "IP Address:"
+msgid "Model:"
+msgstr ""
+
+#: facetracker/main_frame.py:115
+msgid "Tracking model used by the face tracker"
 msgstr ""
 
 #: facetracker/main_frame.py:117
+msgid "Superfast"
+msgstr ""
+
+#: facetracker/main_frame.py:118
+msgid "Fastest"
+msgstr ""
+
+#: facetracker/main_frame.py:119
+msgid "Faster"
+msgstr ""
+
+#: facetracker/main_frame.py:120
+msgid "Normal"
+msgstr ""
+
+#: facetracker/main_frame.py:121
+msgid "Default"
+msgstr ""
+
+#: facetracker/main_frame.py:122
+msgid "Wink optimized"
+msgstr ""
+
+#: facetracker/main_frame.py:130
+msgid "IP Address:"
+msgstr ""
+
+#: facetracker/main_frame.py:133
 msgid "Port:"
 msgstr ""
 
-#: facetracker/main_frame.py:125
+#: facetracker/main_frame.py:141
 msgid "Webcam"
 msgstr ""
 
-#: facetracker/main_frame.py:126
+#: facetracker/main_frame.py:142
 msgid "Camera to use for face tracking"
 msgstr ""
 
-#: facetracker/main_frame.py:138
+#: facetracker/main_frame.py:154
 msgid "Video Mode:"
 msgstr ""
 
-#: facetracker/main_frame.py:139
+#: facetracker/main_frame.py:155
 msgid "Video mode to be used for face tracking"
 msgstr ""
 
-#: facetracker/main_frame.py:173
-msgid "Stop"
-msgstr ""
-
-#: facetracker/main_frame.py:222
+#: facetracker/main_frame.py:244
 msgid "translator-credits"
 msgstr ""
 
-#: facetracker/main_frame.py:226
+#: facetracker/main_frame.py:248
 msgid ""
 "Facetracker is a a graphical user interface for OpenSeeFace. OpenSeeFace is "
 "an independent piece of software and not associated with Facetracker. Visit "
