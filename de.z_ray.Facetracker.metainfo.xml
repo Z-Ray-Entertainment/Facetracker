@@ -45,9 +45,15 @@
     <releases>
         <release version="24.7a7" date="2024-10-07">
             <description>
+                <p>Fixes:</p>
                 <ul>
                     <li>Fixed translations not working properly</li>
+                </ul>
+                <p>Additions:</p>
+                <ul>
                     <li>Added about dialog</li>
+                    <li>Re-phrased some texts in the interface</li>
+                    <li>Updated german translation</li>
                 </ul>
             </description>
         </release>
