@@ -23,7 +23,6 @@ class MainWindow(Gtk.ApplicationWindow):
         self.webcam_infos = webcam_info.get_webcams()
 
         self.set_title(APP_NAME)
-        self.set_default_size(600, 0)
         self._build_title_bar()
         self._build_main_content()
         self._build_header_menu()

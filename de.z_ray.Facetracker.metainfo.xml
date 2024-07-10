@@ -43,7 +43,14 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker</url>
 
     <releases>
-        <release version="24.7a6" date="2024-07-07">
+        <release version="24.7a7" date="2024-10-07">
+            <description>
+                <ul>
+                    <li>Fixed translations not working properly</li>
+                </ul>
+            </description>
+        </release>
+        <release version="24.7a6" date="2024-09-07">
             <description>
                 <ul>
                     <li>Improved app icon</li>
