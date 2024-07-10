@@ -27,26 +27,27 @@
         <screenshot type="default">
             <caption>Main Window</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a6/facetracker/data/screenshots/facetracker.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a7/facetracker/data/screenshots/facetracker.png
             </image>
         </screenshot>
         <screenshot>
             <caption>Advanced Settings</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a6/facetracker/data/screenshots/facetracker_2.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a7/facetracker/data/screenshots/facetracker_2.png
             </image>
         </screenshot>
     </screenshots>
 
     <url type="homepage">https://github.com/Z-Ray-Entertainment/Facetracker</url>
     <url type="vcs-browser">https://github.com/Z-Ray-Entertainment/Facetracker</url>
-    <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker</url>
+    <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
         <release version="24.7a7" date="2024-10-07">
             <description>
                 <ul>
                     <li>Fixed translations not working properly</li>
+                    <li>Added about dialog</li>
                 </ul>
             </description>
         </release>
