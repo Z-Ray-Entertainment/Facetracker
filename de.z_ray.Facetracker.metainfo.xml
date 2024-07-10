@@ -27,13 +27,19 @@
         <screenshot type="default">
             <caption>Main Window</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a7/facetracker/data/screenshots/facetracker.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a8/facetracker/data/screenshots/facetracker.png
             </image>
         </screenshot>
         <screenshot>
             <caption>Advanced Settings</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a7/facetracker/data/screenshots/facetracker_2.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a8/facetracker/data/screenshots/facetracker_2.png
+            </image>
+        </screenshot>
+        <screenshot>
+            <caption>No cameras found</caption>
+            <image>
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7a8/facetracker/data/screenshots/facetracker_3.png
             </image>
         </screenshot>
     </screenshots>
@@ -43,6 +49,14 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
+        <release version="24.7a8" date="2024-10-07">
+            <description>
+                <ul>
+                    <li>Improved the camera not found view</li>
+                    <li>Replaced the start / stop face tracker button with an icon only variant</li>
+                </ul>
+            </description>
+        </release>
         <release version="24.7a7" date="2024-10-07">
             <description>
                 <p>Fixes:</p>
