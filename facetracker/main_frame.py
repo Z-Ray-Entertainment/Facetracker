@@ -1,19 +1,12 @@
-import gettext
-import locale
-
 import gi
 
 from facetracker import webcam_info, face_wrapper
-from facetracker.const import VERSION, APP_NAME, LOCALE_DIR
+from facetracker.const import VERSION, APP_NAME
 from facetracker.webcam_info import VideoMode
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 from gi.repository import Gtk, Adw
-
-locale.bindtextdomain("facetracker", LOCALE_DIR)
-locale.textdomain("facetracker")
-_ = gettext.gettext
 
 
 class MainWindow(Gtk.ApplicationWindow):
@@ -38,7 +31,7 @@ class MainWindow(Gtk.ApplicationWindow):
     def _build_title_bar(self):
         header = Gtk.HeaderBar()
 
-        self.bt_launch = Gtk.ToggleButton(label="Start face tracking")
+        self.bt_launch = Gtk.ToggleButton(label=_("Start face tracking"))
         self.bt_launch.set_tooltip_text(_("Start or Stop the OpenSeeFace face tracker"))
         self.bt_launch.connect("clicked", self._start_stop_facetracker)
         self.bt_launch.add_css_class("suggested-action")
