@@ -49,12 +49,20 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
-        <release version="24.7a8" date="2024-10-08">
+        <release version="24.7" date="2024-10-07">
             <description>
+                <p>Fixed:</p>
                 <ul>
-                    <li>Video format selection now build using the actual device capabilities using v4l2-ctl</li>
+                    <li>Fixed video modes not being updated if changing webcams</li>
+                </ul>
+                <p>Changed:</p>
+                <ul>
                     <li>Overhauled the camera not found view and allow for reloading the interface</li>
                     <li>Replaced the start / stop face tracker button with an icon only variant</li>
+                </ul>
+                <p>Added:</p>
+                <ul>
+                    <li>Video format selection now build using the actual device capabilities using v4l2-ctl</li>
                 </ul>
             </description>
         </release>
