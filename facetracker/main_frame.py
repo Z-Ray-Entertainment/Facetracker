@@ -21,7 +21,9 @@ class MainWindow(Gtk.ApplicationWindow):
         self.ip_text: Adw.EntryRow
         self.port_text: Adw.EntryRow
         self.webcam_infos = webcam_info.get_webcams()
+        self.webcam_infos = []
 
+        self.main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
         self.set_title(APP_NAME)
         self._build_title_bar()
         self._build_main_content()
@@ -50,42 +52,59 @@ class MainWindow(Gtk.ApplicationWindow):
         pass
 
     def _build_main_content(self):
-        main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        main_box.set_margin_end(10)
-        main_box.set_margin_start(10)
-        main_box.set_margin_top(10)
-        main_box.set_margin_bottom(10)
+        self.main_box.set_margin_end(10)
+        self.main_box.set_margin_start(10)
+        self.main_box.set_margin_top(10)
+        self.main_box.set_margin_bottom(10)
 
         if len(self.webcam_infos) > 0:
-            boxed_list = Gtk.ListBox()
-            boxed_list.set_selection_mode(Gtk.SelectionMode.NONE)
-            boxed_list.add_css_class("boxed-list")
-            main_box.append(boxed_list)
-
-            self._build_webcam_cb()
-            boxed_list.append(self.cam_combo_row)
-
-            self.tracking_settings_row = Adw.ExpanderRow()
-            self.tracking_settings_row.set_title(_("Tracking Settings"))
-            self._build_video_modes()
-            self.tracking_settings_row.add_row(self.video_modes_row)
-            self._build_tracking_mode_selection()
-            self.tracking_settings_row.add_row(self.tracking_mode_row)
-            boxed_list.append(self.tracking_settings_row)
-
-            self.server_settings_row = Adw.ExpanderRow()
-            self.server_settings_row.set_title(_("Server Settings"))
-            self._build_server_settings(self.server_settings_row)
-            boxed_list.append(self.server_settings_row)
+            self._build_cam_found()
         else:
-            no_cams_found_status = Adw.StatusPage()
-            no_cams_found_status.set_title(_("No webcams found!"))
-            no_cams_found_status.set_description(
-                _("Please verify a webcam connected to the computer and not disabled by a hardware switch. Then restart the application"))
-            no_cams_found_status.set_icon_name("camera-disabled-symbolic")
-            main_box.append(no_cams_found_status)
+            self._build_no_cams_found()
+        self.set_child(self.main_box)
 
-        self.set_child(main_box)
+    def _build_tracking_in_progress(self, main_box: Gtk.Box):
+        tracking_status = Adw.StatusPage()
+        tracking_status.set_title(_("Tracking"))
+        tracking_status.set_description(_("The face tracker is running and collecting tracking data."))
+        tracking_status.set_icon_name("view-reveal-symbolic")
+
+    def _build_cam_found(self):
+        boxed_list = Gtk.ListBox()
+        boxed_list.set_selection_mode(Gtk.SelectionMode.NONE)
+        boxed_list.add_css_class("boxed-list")
+
+        self._build_webcam_cb()
+        boxed_list.append(self.cam_combo_row)
+
+        self.tracking_settings_row = Adw.ExpanderRow()
+        self.tracking_settings_row.set_title(_("Tracking Settings"))
+        self._build_video_modes()
+        self.tracking_settings_row.add_row(self.video_modes_row)
+        self._build_tracking_mode_selection()
+        self.tracking_settings_row.add_row(self.tracking_mode_row)
+        boxed_list.append(self.tracking_settings_row)
+
+        self.server_settings_row = Adw.ExpanderRow()
+        self.server_settings_row.set_title(_("Server Settings"))
+        self._build_server_settings(self.server_settings_row)
+        boxed_list.append(self.server_settings_row)
+        self.main_box.append(boxed_list)
+
+    def _build_no_cams_found(self):
+        no_cams_found_status = Adw.StatusPage()
+        no_cams_found_status.set_title(_("No webcams found!"))
+        no_cams_found_status.set_description(
+            _("Please verify a webcam connected to the computer and not disabled by a hardware switch. Then press the reload button"))
+        no_cams_found_status.set_icon_name("camera-disabled-symbolic")
+
+        bt_refresh = Gtk.Button.new_from_icon_name("view-refresh-symbolic")
+        bt_refresh.set_tooltip_text(_("Rescan for webcams"))
+        bt_refresh.connect("clicked", self._rescan_for_cams)
+        bt_refresh.add_css_class("suggested-action")
+        no_cams_found_status.set_child(bt_refresh)
+
+        self.main_box.append(no_cams_found_status)
 
     def _build_tracking_mode_selection(self):
         """
@@ -145,6 +164,12 @@ class MainWindow(Gtk.ApplicationWindow):
         for mode in selected_cam.video_modes:
             mode_string_list.append(mode.to_string())
         self.video_modes_row.set_model(mode_string_list)
+
+    def _rescan_for_cams(self, widget):
+        self.webcam_infos = webcam_info.get_webcams()
+        if len(self.webcam_infos) > 0:
+            self.main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+            self._build_main_content()
 
     def _get_selected_camera_index(self) -> int:
         selected_item = self.cam_combo_row.get_selected_item()
