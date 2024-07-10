@@ -52,6 +52,7 @@
         <release version="24.7a8" date="2024-10-08">
             <description>
                 <ul>
+                    <li>Video format selection now build using the actual device capabilities using v4l2-ctl</li>
                     <li>Overhauled the camera not found view and allow for reloading the interface</li>
                     <li>Replaced the start / stop face tracker button with an icon only variant</li>
                 </ul>
