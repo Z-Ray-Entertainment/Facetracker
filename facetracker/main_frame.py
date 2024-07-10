@@ -39,8 +39,8 @@ class MainWindow(Gtk.ApplicationWindow):
         self.hamburger.set_icon_name("open-menu-symbolic")
         header.pack_end(self.hamburger)
 
-        self.bt_launch = Gtk.ToggleButton(label=_("Start"))
-        self.bt_launch.set_tooltip_text(_("Start or Stop the OpenSeeFace face tracker"))
+        self.bt_launch = Gtk.Button.new_from_icon_name("camera-photo-symbolic")
+        self.bt_launch.set_tooltip_text(_("Start or Stop the face tracker"))
         self.bt_launch.connect("clicked", self._start_stop_facetracker)
         self.bt_launch.add_css_class("suggested-action")
         header.pack_start(self.bt_launch)
@@ -78,9 +78,12 @@ class MainWindow(Gtk.ApplicationWindow):
             self._build_server_settings(self.server_settings_row)
             boxed_list.append(self.server_settings_row)
         else:
-            no_cams_label = Gtk.Label()
-            no_cams_label.set_label(_("No webcams found!"))
-            main_box.append(no_cams_label)
+            no_cams_found_status = Adw.StatusPage()
+            no_cams_found_status.set_title(_("No webcams found!"))
+            no_cams_found_status.set_description(
+                _("Please verify a webcam connected to the computer and not disabled by a hardware switch. Then restart the application"))
+            no_cams_found_status.set_icon_name("camera-disabled-symbolic")
+            main_box.append(no_cams_found_status)
 
         self.set_child(main_box)
 
@@ -170,7 +173,7 @@ class MainWindow(Gtk.ApplicationWindow):
 
                 if face_wrapper.run_facetracker(video_width, video_height, frame_rate, camera_index, tracking_mode,
                                                 server_ip, server_port):
-                    self.bt_launch.set_label(_("Stop"))
+                    self.bt_launch.set_icon_name("camera-disabled-symbolic")
                     self.bt_launch.remove_css_class("suggested-action")
                     self.bt_launch.add_css_class("destructive-action")
             else:
@@ -178,7 +181,7 @@ class MainWindow(Gtk.ApplicationWindow):
                     if face_wrapper.stop_facetracker():
                         self.bt_launch.add_css_class("suggested-action")
                         self.bt_launch.remove_css_class("destructive-action")
-                        self.bt_launch.set_label(_("Start"))
+                        self.bt_launch.set_icon_name("camera-photo-symbolic")
 
     def _get_webcam_by_index(self, index: int):
         for cam in self.webcam_infos:
