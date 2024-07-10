@@ -87,7 +87,7 @@ class MainWindow(Gtk.ApplicationWindow):
         no_cams_found_status = Adw.StatusPage()
         no_cams_found_status.set_title(_("No webcams found!"))
         no_cams_found_status.set_description(
-            _("Please verify a webcam connected to the computer and is not disabled by a hardware switch. Then press the reload button."))
+            _("Please verify a webcam is connected to the computer and not disabled by a hardware switch."))
         no_cams_found_status.set_icon_name("camera-disabled-symbolic")
 
         bt_refresh = Gtk.Button.new_from_icon_name("view-refresh-symbolic")
