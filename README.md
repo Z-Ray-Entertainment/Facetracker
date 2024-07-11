@@ -62,7 +62,7 @@ towards the dist directory pf teh pre-build.
 The following cams have been tested with this application in functioning and gathering device capabilities properly
 
 - NB Pro: BisonCam
-- Logitec C922 Pro Streaming Webcam
-- USB 3.0 Capture card (yes an actual capture card)
+- Logitec C922 Pro Stream Webcam
+- USB3.0 capture (yes an actual capture card)
 - Logitec HD WebCam C270
 - pulsonic HDR webcam
