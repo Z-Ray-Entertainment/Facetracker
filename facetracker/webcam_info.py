@@ -1,5 +1,6 @@
 import math
 import os
+import re
 import subprocess
 
 
@@ -109,10 +110,7 @@ def _get_video_modes(device_index: int) -> [VideoMode]:
     - Using "ffmpeg -hide_banner -f v4l2 -list_formats all -i /dev/video*" lacks the frame rate info but has the
     best format
     """
-    videomode_default = VideoMode(width=640, height=360, fps=24)  # OSF default
-    # videomode_hd = VideoMode(width=1280, height=720, fps=25)  # Probably works with most cams
-    # videomode_hd_60 = VideoMode(width=1280, height=720, fps=60)  # Probably works with most cams
-    # videomode_fullhd = VideoMode(width=1920, height=1080, fps=30)  # Probably works with most cams
+    videomode_default = VideoMode(width=640, height=360, fps=24)  # OSF default always added as fallback
     video_modes = [videomode_default]
 
     command = ["v4l2-ctl", "-d", "/dev/video" + str(device_index), "--list-formats-ext"]
@@ -125,10 +123,15 @@ def _get_video_modes(device_index: int) -> [VideoMode]:
     for field in v4l2_formats:
         line = field.replace("\t", "").replace(":", "").replace("(", "").replace(")", "")
         cells = line.split(" ")
+
+        res = re.match(r"\[[0123456789]\]", cells[0])
+        if res is not None:
+            if cells[2] == "YUYV":  # RAW video mode used by opencv / OSF
+                collect_new_video_mode = True
+            else:
+                collect_new_video_mode = False
+
         match cells[0]:
-            case "[0]":
-                if cells[2] == "YUYV":  # RAW video mode used by opencv / OSF
-                    collect_new_video_mode = True
             case "Size":
                 if collect_new_video_mode:
                     current_resolution = cells[2]
@@ -139,7 +142,5 @@ def _get_video_modes(device_index: int) -> [VideoMode]:
                     fps = int(math.ceil(float(current_frame_rate)))
                     new_video_mode = VideoMode(int(res[0]), int(res[1]), fps)
                     video_modes.append(new_video_mode)
-            case "[1]":
-                collect_new_video_mode = False
 
     return video_modes
