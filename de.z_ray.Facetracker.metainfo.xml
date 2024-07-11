@@ -33,19 +33,19 @@
         <screenshot type="default">
             <caption>Main Window</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.1/facetracker/data/screenshots/facetracker.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.2/facetracker/data/screenshots/facetracker.png
             </image>
         </screenshot>
         <screenshot>
             <caption>Advanced Settings</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.1/facetracker/data/screenshots/facetracker_2.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.2/facetracker/data/screenshots/facetracker_2.png
             </image>
         </screenshot>
         <screenshot>
             <caption>No cameras found</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.1/facetracker/data/screenshots/facetracker_3.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.2/facetracker/data/screenshots/facetracker_3.png
             </image>
         </screenshot>
     </screenshots>
