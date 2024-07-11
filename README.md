@@ -57,3 +57,12 @@ Get is as follows:
 
 To test the pre-build locally create a symbolic link inside the source directory of Facetracker/facetracker/osf pointing
 towards the dist directory pf teh pre-build.
+
+## Webcams tested
+The following cams have been tested with this application in functioning and gathering device capabilities properly
+
+- NB Pro: BisonCam
+- Logitec C922 Pro Streaming Webcam
+- USB 3.0 Capture card (yes an actual capture card)
+- Logitec HD WebCam C270
+- pulsonic HDR webcam
