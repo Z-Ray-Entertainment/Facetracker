@@ -27,19 +27,19 @@
         <screenshot type="default">
             <caption>Main Window</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2/facetracker/data/screenshots/facetracker.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.1/facetracker/data/screenshots/facetracker.png
             </image>
         </screenshot>
         <screenshot>
             <caption>Advanced Settings</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2/facetracker/data/screenshots/facetracker_2.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.1/facetracker/data/screenshots/facetracker_2.png
             </image>
         </screenshot>
         <screenshot>
             <caption>No cameras found</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2/facetracker/data/screenshots/facetracker_3.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.1/facetracker/data/screenshots/facetracker_3.png
             </image>
         </screenshot>
     </screenshots>
@@ -49,7 +49,19 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
-        <release version="24.7.2" date="2024-10-07">
+        <release version="24.7.2.1" date="2024-07-11">
+            <description>
+                <p>Fixed:</p>
+                <ul>
+                    <li>Release note date format</li>
+                </ul>
+                <p>Added:</p>
+                <ul>
+                    <li>Copyright notice for OpenSeeFace to about dialog</li>
+                </ul>
+            </description>
+        </release>
+        <release version="24.7.2" date="2024-07-10">
             <description>
                 <p>Fixed:</p>
                 <ul>
@@ -66,7 +78,7 @@
                 </ul>
             </description>
         </release>
-        <release version="24.7a7" date="2024-10-07">
+        <release version="24.7a7" date="2024-07-10">
             <description>
                 <p>Fixes:</p>
                 <ul>
@@ -80,7 +92,7 @@
                 </ul>
             </description>
         </release>
-        <release version="24.7a6" date="2024-09-07">
+        <release version="24.7a6" date="2024-07-09">
             <description>
                 <ul>
                     <li>Improved app icon</li>
