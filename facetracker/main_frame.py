@@ -246,6 +246,9 @@ class OpenSeeFaceFacetrackingWrapper(Adw.Application):
             issue_url="https://github.com/Z-Ray-Entertainment/Facetracker/issues",
             comments=_("Facetracker is a a graphical user interface for OpenSeeFace. "
                        "OpenSeeFace is an independent piece of software and not associated with Facetracker. "
-                       "Visit OpenSeeFace on <a href='https://github.com/emilianavt/OpenSeeFace'>Github</a>.")
+                       "OpenSeeFace is distributed under "
+                       "<a href='https://raw.githubusercontent.com/emilianavt/OpenSeeFace/master/LICENSE'> "
+                       "BSD-2-Clause license </a> visit OpenSeeFace on "
+                       "<a href='https://github.com/emilianavt/OpenSeeFace'>Github</a>.")
         )
         about_ui.present(self.props.active_window)
