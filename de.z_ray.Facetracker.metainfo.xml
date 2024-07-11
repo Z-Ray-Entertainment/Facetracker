@@ -55,6 +55,18 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
+        <release version="24.7.2.2" date="2024-07-11">
+            <description>
+                <p>Changed:</p>
+                <ul>
+                    <li>Improved webcam video mode detection for certain devices</li>
+                </ul>
+                <p>Added:</p>
+                <ul>
+                    <li>Italian translation (thanks Albano Battistella)</li>
+                </ul>
+            </description>
+        </release>
         <release version="24.7.2.1" date="2024-07-11">
             <description>
                 <p>Fixed:</p>
