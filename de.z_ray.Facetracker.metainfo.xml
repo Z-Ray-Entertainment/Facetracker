@@ -17,11 +17,17 @@
             from a webcam. These tracking data can then be used by other applications like VTubbing Software to bring a
             virtual avatar to live.
         </p>
+        <p xml:lang="de">
+            Eine grafische Oberfläche um eine Gesichtserkennung lokal auf Ihrem Computer auszuführen um Verfolgungsdaten
+            von einer Kamera zu erhalten. Diese Daten können dann von anderen Anwendungen wie VTubbing Software
+            verwendet werden um einen virtuellen Avatar zum Leben zu erwecken.
+        </p>
     </description>
 
     <metadata_license>CC0-1.0</metadata_license>
     <project_license>MIT</project_license>
     <content_rating type="oars-1.1"/>
+    <translation type="gettext">facetracker</translation>
 
     <screenshots>
         <screenshot type="default">
