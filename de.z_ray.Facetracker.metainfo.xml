@@ -55,6 +55,14 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
+        <release version="24.7.2.3" date="2024-07-11">
+            <description>
+                <p>Added:</p>
+                <ul>
+                    <li>Spanish translation (thanks haggen88)</li>
+                </ul>
+            </description>
+        </release>
         <release version="24.7.2.2" date="2024-07-11">
             <description>
                 <p>Changed:</p>
