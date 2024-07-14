@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-11 09:54+0000\n"
+"PO-Revision-Date: 2024-07-14 12:42-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: facetracker/main_frame.py:37
+msgid "About"
+msgstr "Acerca de"
+
+#: facetracker/main_frame.py:46
+msgid "Start or Stop the face tracker"
+msgstr "Iniciar o detener el seguimiento facial"
+
+#: facetracker/main_frame.py:73
+msgid "Tracking Settings"
+msgstr "Configuración de rastreador"
+
+#: facetracker/main_frame.py:82
+msgid "Server Settings"
+msgstr "Configuración del servidor"
+
+#: facetracker/main_frame.py:89
+msgid "No webcams found!"
+msgstr "¡No se encontraron cámaras web!"
+
+#: facetracker/main_frame.py:91
+msgid ""
+"Please verify a webcam is connected to the computer and not disabled by a "
+"hardware switch."
+msgstr ""
+"Verifique que una cámara web esté conectada a la computadora y que no esté "
+"desactivada mediante un interruptor de hardware."
+
+#: facetracker/main_frame.py:95
+msgid "Rescan for webcams"
+msgstr "Volver a buscar cámaras web"
+
+#: facetracker/main_frame.py:113
+msgid "Model:"
+msgstr "Modelo:"
+
+#: facetracker/main_frame.py:114
+msgid "Tracking model used by the face tracker"
+msgstr "Modelo de seguimiento utilizado por el rastreador facial"
+
+#: facetracker/main_frame.py:116
+msgid "Superfast"
+msgstr "Superrápido"
+
+#: facetracker/main_frame.py:117
+msgid "Fastest"
+msgstr "El más rápido"
+
+#: facetracker/main_frame.py:118
+msgid "Faster"
+msgstr "Más rápido"
+
+#: facetracker/main_frame.py:119
+msgid "Normal"
+msgstr "Normal"
+
+#: facetracker/main_frame.py:120
+msgid "Default"
+msgstr "Por defecto"
+
+#: facetracker/main_frame.py:121
+msgid "Wink optimized"
+msgstr "Optimización de guiños"
+
+#: facetracker/main_frame.py:129
+msgid "IP Address:"
+msgstr "Dirección IP:"
+
+#: facetracker/main_frame.py:132
+msgid "Port:"
+msgstr "Puerto:"
+
+#: facetracker/main_frame.py:140
+msgid "Webcam"
+msgstr "Cámara web"
+
+#: facetracker/main_frame.py:141
+msgid "Camera to use for face tracking"
+msgstr "Cámara para el seguimiento facial"
+
+#: facetracker/main_frame.py:153
+msgid "Video Mode:"
+msgstr "Modo vídeo:"
+
+#: facetracker/main_frame.py:154
+msgid "Video mode to be used for face tracking"
+msgstr "Modo de vídeo para el seguimiento facial"
+
+#: facetracker/main_frame.py:243
+msgid "translator-credits"
+msgstr "haggen88"
+
+#: facetracker/main_frame.py:247
+msgid ""
+"Facetracker is a a graphical user interface for OpenSeeFace. OpenSeeFace is "
+"an independent piece of software and not associated with Facetracker. "
+"OpenSeeFace is distributed under <a href='https://raw.githubusercontent.com/"
+"emilianavt/OpenSeeFace/master/LICENSE'> BSD-2-Clause license </a> visit "
+"OpenSeeFace on <a href='https://github.com/emilianavt/OpenSeeFace'>Github</"
+"a>."
+msgstr ""
+"Facetracker es una interfaz gráfica de usuario para OpenSeeFace. "
+"OpenSeeFace es un software independiente y no está asociado con "
+"Facetracker. OpenSeeFace se distribuye bajo <a href='https://raw."
+"githubusercontent.com/emilianavt/OpenSeeFace/master/LICENSE'> licencia "
+"BSD-2-Clause </a> visite OpenSeeFace en <a href='https:// github.com/"
+"emilianavt/OpenSeeFace'>Github</a>."
