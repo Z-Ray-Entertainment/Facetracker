@@ -1,5 +1,5 @@
 project('facetracker',
-  version: '24.7.2.3',
+  version: '24.10',
   meson_version: '>= 0.62.0',
   default_options: ['warning_level=2', 'werror=false'],
 )
