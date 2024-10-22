@@ -20,16 +20,31 @@ class WebcamInfo:
         self.device_index = index
         self.device_name = device_name
         self.device_path = device_path
-        self.video_modes = []
+        # TODO: Collect all video formats as a dict
+        # For osf then return only "raw" eg YUYV as this is what opencv supports on Linux only
+        self.video_modes = {}
 
-    def add_video_mode(self, video_mode: VideoMode):
-        self.video_modes.append(video_mode)
+    def add_video_mode(self, mode: VideoMode, codec: str):
+        if codec not in self.video_modes:
+            self.video_modes[codec] = []
+        self.video_modes[codec].append(mode)
 
-    def get_video_modes(self) -> [VideoMode]:
+    def get_osf_video_modes(self) -> [VideoMode]:
+        return self.video_modes["default"] + self.video_modes["YUYV"]
+
+    def get_all_video_modes(self) -> {}:
         return self.video_modes
 
+    def debug_info(self):
+        debug_info = str(self.device_index) + " " + self.device_name + " " + self.device_path + "\n"
+        for codec in self.video_modes:
+            debug_info += codec + ":\n"
+            for mode in self.video_modes[codec]:
+                debug_info += mode.to_string() + "\n"
+        return debug_info
+
     def print_info(self):
-        print(str(self.device_index) + " " + self.device_name + " " + self.device_path)
+        print(self.debug_info())
 
 
 def get_webcams() -> [WebcamInfo]:
@@ -89,8 +104,10 @@ def get_webcams() -> [WebcamInfo]:
         webcams = []
         for webcam_info in found_devices:
             webcam = found_devices[webcam_info]
-            for mode in _get_video_modes(webcam.device_index):
-                webcam.add_video_mode(mode)
+            all_video_modes = _get_video_modes(webcam.device_index)
+            for codec in all_video_modes:
+                for mode in all_video_modes[codec]:
+                    webcam.add_video_mode(mode, codec)
             webcams.append(webcam)
     return webcams
 
@@ -110,8 +127,6 @@ def _get_video_modes(device_index: int) -> [VideoMode]:
     - Using "ffmpeg -hide_banner -f v4l2 -list_formats all -i /dev/video*" lacks the frame rate info but has the
     best format
     """
-    videomode_default = VideoMode(width=640, height=360, fps=24)  # OSF default always added as fallback
-    video_modes = [videomode_default]
 
     command = ["v4l2-ctl", "-d", "/dev/video" + str(device_index), "--list-formats-ext"]
     v4l2_result = subprocess.run(command, stdout=subprocess.PIPE)
@@ -119,6 +134,9 @@ def _get_video_modes(device_index: int) -> [VideoMode]:
 
     collect_new_video_mode = False
     current_resolution = "0x0"
+    current_format = "default"
+    videomode_default = VideoMode(width=640, height=360, fps=24)  # OSF default always added as fallback
+    video_modes = {current_format: [videomode_default]}
 
     for field in v4l2_formats:
         line = field.replace("\t", "").replace(":", "").replace("(", "").replace(")", "")
@@ -126,10 +144,9 @@ def _get_video_modes(device_index: int) -> [VideoMode]:
 
         res = re.match(r"\[[0123456789]\]", cells[0])
         if res is not None:
-            if cells[2] == "YUYV":  # RAW video mode used by opencv / OSF
-                collect_new_video_mode = True
-            else:
-                collect_new_video_mode = False
+            current_format = cells[1].replace("'", "")
+            video_modes[current_format] = []
+            collect_new_video_mode = True
 
         match cells[0]:
             case "Size":
@@ -141,6 +158,5 @@ def _get_video_modes(device_index: int) -> [VideoMode]:
                     res = current_resolution.split("x")
                     fps = int(math.ceil(float(current_frame_rate)))
                     new_video_mode = VideoMode(int(res[0]), int(res[1]), fps)
-                    video_modes.append(new_video_mode)
-
+                    video_modes[current_format].append(new_video_mode)
     return video_modes

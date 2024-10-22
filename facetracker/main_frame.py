@@ -154,7 +154,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.video_modes_row.set_subtitle(_("Video mode to be used for face tracking"))
         mode_string_list = Gtk.StringList()
         selected_cam = self._get_webcam_by_index(self._get_selected_camera_index())
-        for mode in selected_cam.video_modes:
+        for mode in selected_cam.get_osf_video_modes():
             mode_string_list.append(mode.to_string())
         self.video_modes_row.set_model(mode_string_list)
 
