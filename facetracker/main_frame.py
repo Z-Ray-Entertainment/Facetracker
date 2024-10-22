@@ -240,6 +240,7 @@ class OpenSeeFaceFacetrackingWrapper(Adw.Application):
             artists=[
                 "Vortex Acherontic https://github.com/VortexAcherontic",
             ],
+            debug_info=get_debug_info(),
             translator_credits=_("translator-credits"),
             license_type=Gtk.License.MIT_X11,
             website="https://github.com/Z-Ray-Entertainment/Facetracker",
@@ -252,3 +253,11 @@ class OpenSeeFaceFacetrackingWrapper(Adw.Application):
                        "<a href='https://github.com/emilianavt/OpenSeeFace'>Github</a>.")
         )
         about_ui.present(self.props.active_window)
+
+
+def get_debug_info():
+    webcam_infos = webcam_info.get_webcams()
+    all_cams_debug = ""
+    for cam in webcam_infos:
+        all_cams_debug += cam.debug_info() + "\n\n"
+    return all_cams_debug
