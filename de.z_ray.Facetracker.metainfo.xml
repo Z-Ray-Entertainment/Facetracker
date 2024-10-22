@@ -55,6 +55,13 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
+        <release version="24.10" date="YYYY-MM-DD">
+            <description>
+                <ul>
+                    <li>Update to Gnome SDK 47</li>
+                </ul>
+            </description>
+        </release>
         <release version="24.7.2.3" date="2024-07-11">
             <description>
                 <p>Added:</p>
