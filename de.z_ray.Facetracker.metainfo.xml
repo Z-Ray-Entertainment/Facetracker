@@ -33,19 +33,19 @@
         <screenshot type="default">
             <caption>Main Window</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.2/facetracker/data/screenshots/facetracker.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.10/facetracker/data/screenshots/facetracker.png
             </image>
         </screenshot>
         <screenshot>
             <caption>Advanced Settings</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.2/facetracker/data/screenshots/facetracker_2.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.10/facetracker/data/screenshots/facetracker_2.png
             </image>
         </screenshot>
         <screenshot>
             <caption>No cameras found</caption>
             <image>
-                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.7.2.2/facetracker/data/screenshots/facetracker_3.png
+                https://raw.githubusercontent.com/Z-Ray-Entertainment/Facetracker/24.10/facetracker/data/screenshots/facetracker_3.png
             </image>
         </screenshot>
     </screenshots>
@@ -55,10 +55,12 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
-        <release version="24.10" date="YYYY-MM-DD">
+        <release version="24.10" date="2024-10-22">
             <description>
                 <ul>
                     <li>Update to Gnome SDK 47</li>
+                    <li>Add debug info to about dialog</li>
+                    <li>Reworked retrieval of supported webcam codecs and video formats</li>
                 </ul>
             </description>
         </release>
