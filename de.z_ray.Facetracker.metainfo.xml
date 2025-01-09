@@ -55,6 +55,13 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
+        <release>
+            <description>
+                <ul>
+                    <li>Fixed file type association</li>
+                </ul>
+            </description>
+        </release>
         <release version="24.10" date="2024-10-22">
             <description>
                 <ul>
