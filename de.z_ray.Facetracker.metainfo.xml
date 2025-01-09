@@ -56,7 +56,7 @@
 
     <releases>
         <release>
-            <description>
+            <description version="25.1" date="2025-01-09">
                 <ul>
                     <li>Fixed file type association</li>
                 </ul>
