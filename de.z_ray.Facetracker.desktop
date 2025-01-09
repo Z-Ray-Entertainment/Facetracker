@@ -6,4 +6,3 @@ Icon=de.z_ray.Facetracker
 Categories=Utility;
 Keywords=facetracker;vtube;webcam;
 Comment=A graphical interface for OpenSeeFace's Facetracker
-MimeType=application/x-rpm;application/vnd.debian.binary-package
