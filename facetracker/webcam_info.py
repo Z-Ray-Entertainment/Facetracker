@@ -30,7 +30,10 @@ class WebcamInfo:
         self.video_modes[codec].append(mode)
 
     def get_osf_video_modes(self) -> [VideoMode]:
-        return self.video_modes["default"] + self.video_modes["YUYV"]
+        supported_formats = self.video_modes["default"]
+        if "YUYV" in self.video_modes:
+            supported_formats = supported_formats + self.video_modes["YUYV"]
+        return supported_formats
 
     def get_all_video_modes(self) -> {}:
         return self.video_modes
