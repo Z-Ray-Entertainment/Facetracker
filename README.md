@@ -40,10 +40,16 @@ Simple wrapper UI for OpenSeeFace's facetracker.
 
 ### Setup
 
+#### Python
 - Clone repository
 - pip install -e .
 
-#### OpenSeeFace prebuild binary
+#### Gnome Builder
+- Install Builder
+- Open Source Directory of Facetracker
+- Run
+
+### OpenSeeFace prebuild binary
 
 To ease up flatpak distribution Facetracker uses OpenSeeFace's facetracker as a pre-build binary.  
 Get is as follows:
@@ -56,9 +62,9 @@ Get is as follows:
 - `cp models ./dist/facetracker/`
 
 To test the pre-build locally create a symbolic link inside the source directory of Facetracker/facetracker/osf pointing
-towards the dist directory pf teh pre-build.
+towards the dist directory of the pre-build.
 
-## Webcams tested
+# Webcams tested
 The following cams have been tested with this application in functioning and gathering device capabilities properly
 
 - NB Pro: BisonCam
@@ -66,3 +72,4 @@ The following cams have been tested with this application in functioning and gat
 - USB3.0 capture (yes an actual capture card)
 - Logitec HD WebCam C270
 - pulsonic HDR webcam
+- Integrated Camera of Lenovo V15 G4 AMN
