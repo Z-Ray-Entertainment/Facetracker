@@ -60,6 +60,7 @@
                 <ul>
                     <li>Fixed file type association</li>
                     <li>Fixed the app crashing if YUYV video format was not found</li>
+                    <li>Added additional raw video codecs to look up if YUYV could not be found</li>
                 </ul>
             </description>
         </release>
