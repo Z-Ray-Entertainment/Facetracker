@@ -55,8 +55,8 @@
     <url type="help">https://github.com/Z-Ray-Entertainment/Facetracker/issues</url>
 
     <releases>
-        <release>
-            <description version="25.2" date="2025-02-05">
+        <release version="25.2" date="2025-02-05">
+            <description>
                 <ul>
                     <li>Fixed file type association</li>
                     <li>Fixed the app crashing if YUYV video format was not found</li>
