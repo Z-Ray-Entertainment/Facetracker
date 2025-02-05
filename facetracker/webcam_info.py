@@ -20,8 +20,6 @@ class WebcamInfo:
         self.device_index = index
         self.device_name = device_name
         self.device_path = device_path
-        # TODO: Collect all video formats as a dict
-        # For osf then return only "raw" eg YUYV as this is what opencv supports on Linux only
         self.video_modes = {}
 
     def add_video_mode(self, mode: VideoMode, codec: str):
@@ -31,8 +29,10 @@ class WebcamInfo:
 
     def get_osf_video_modes(self) -> [VideoMode]:
         supported_formats = self.video_modes["default"]
-        if "YUYV" in self.video_modes:
-            supported_formats = supported_formats + self.video_modes["YUYV"]
+        for codec in ["YUYV", "NV12", "YU12"]:
+            if codec in self.video_modes:
+                # Will return right away if the first known working format was found.
+                return supported_formats + self.video_modes[codec]
         return supported_formats
 
     def get_all_video_modes(self) -> {}:
