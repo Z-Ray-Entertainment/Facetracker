@@ -1,14 +1,14 @@
 # ITALIAN TRANSLATON.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# ALBANO BATTISTELLA <ALBANOBATTISTELLA@GMAIL.COM>, 2024.
+# ALBANO BATTISTELLA <ALBANOBATTISTELLA@GMAIL.COM>, 2024,2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-11 09:54+0000\n"
-"PO-Revision-Date: 2024-07-11 12:53+0200\n"
+"PO-Revision-Date: 2025-02-09 10:53+0200\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -78,7 +78,7 @@ msgstr "Predefinito"
 
 #: facetracker/main_frame.py:121
 msgid "Wink optimized"
-msgstr ""
+msgstr "Wink ottimizzato"
 
 #: facetracker/main_frame.py:129
 msgid "IP Address:"
