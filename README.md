@@ -36,7 +36,7 @@ Simple wrapper UI for OpenSeeFace's facetracker.
 - python3-devel
 - python3-pip
 - gobject-introspection-devel
-- v4l2-utils
+- v4l-utils
 
 ### Setup
 
