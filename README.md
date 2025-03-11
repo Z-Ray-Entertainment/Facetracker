@@ -45,6 +45,14 @@ Simple wrapper UI for OpenSeeFace's facetracker.
 - Open Source Directory of Facetracker
 - Run
 
+#### Python / PyCharm
+- Clone Repository
+- Install
+  - typelib-1_0-Gtk-4_0
+  - typelib-1_0-Adw-1
+- Provide osf pre-build binary (see below)
+- `python3 facetracker/__init__.py`
+
 ### OpenSeeFace prebuild binary
 
 To ease up flatpak distribution Facetracker uses OpenSeeFace's facetracker as a pre-build binary.  
