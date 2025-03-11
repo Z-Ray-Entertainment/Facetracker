@@ -40,10 +40,6 @@ Simple wrapper UI for OpenSeeFace's facetracker.
 
 ### Setup
 
-#### Python
-- Clone repository
-- pip install -e .
-
 #### Gnome Builder
 - Install Builder
 - Open Source Directory of Facetracker
